@@ -1,0 +1,8 @@
+ant
+cat
+bat
+shoe
+umbrella
+shogun
+total
+anderson

@@ -1,0 +1,46 @@
+0.  Each format soupports only three basic colours. Other colours are made from different combinations
+	of these basic colours i.e. red,green and blue.
+
+1.  GIF supports animation.
+
+2.  In lossy compression image quality is compromised as a tradeoff for reduced size. In
+    lossless compression image quality is not changed even when the file is compressed.
+	
+3.  JPEG format is lossy compressed.
+
+4.  When a file is deleted on a FAT file system the os changes the first character of the filename
+    to indicate that the file is deleted and lists the space occupied by the file
+    as free space or space ready to write other data. Actually the content of the file is never deleted.   
+    
+6.  The <stdint.h> header  declares sets of integer types having specified widths, and defines 
+	corresponding sets of macros. It also defines macros that specify limits of integer types corresponding 
+	to types defined in other standard headers.
+	
+7.  They are integers having exact widths i.e uint8_t is exactly 8 bit wide. these types can be useful 
+	for reading or writeing data of a specific length to a file. They are used in the case of BMP files. 
+	
+8.  BYTE = 8 bits, DWORD = 32 bits, LONG = 32 bits, WORD = 16 bits.
+
+9.  The first two bytes of any BMP file must be 0x4d42 in hexadecimal.
+
+10. bfsize= size of the BMP file and bisize = The number of bytes required by the structure BITMAPINFOHEADER.
+ 
+11.  If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner.
+
+12. biBitCount specifies BMP s color depth.
+
+13. fopen retuns NULL in case it is unable to open the file due to low disc space or error or any other reason.
+
+14. The third argument in fread signifies how many times fourth argument sized bytes must be read form the 
+	inputfile to the buffer. We want to read the BITMAPFILEHEADER and BITMAPINFOHEADER sized data only once 
+	to place them atop color triplets so the third argument is only.
+	
+15. The value of padding will be 3 if bi.biwidth is 3.
+
+16. fseek is used to reposition file stream position indicator.
+
+17. SEEK_CUR Seeks the file pointer indicator from the current location. 
+
+18. TODO
+
+18.	Whodunit?

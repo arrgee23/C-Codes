@@ -1,0 +1,47 @@
+#include<stdio.h>
+main()
+{
+	int a;
+	printf("Enter a number to get the roman eqv: ");
+	scanf("%d",&a);
+	printf("The roman eqv is:");
+	while(a!=0)
+	{
+		while(a>=1000)
+		{
+			printf("M");
+			a=a-1000;
+		}
+		while(a>=500)
+		{
+			printf("D");
+			a=a-500;
+		}
+		while(a>=100)
+		{
+			printf("C");
+			a=a-100;
+		}
+		while(a>=50)
+		{
+			printf("L");
+			a=a-50;
+		}
+		while(a>=10)
+		{
+			printf("X");
+			a=a-10;
+		}
+		while(a>=5)
+		{
+			printf("V");
+			a=a-5;
+		}
+		while(a>=1)
+		{
+			printf("I");
+			a=a-1;
+		}
+	}
+	puts("");
+}

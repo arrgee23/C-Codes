@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://x.cs50.net/2012/psets/7/pset7.html -->
+<html style="height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <!-- https://gist.github.com/2554919 -->
+        <link href="https://x.cs50.net/github.css" rel="stylesheet">
+
+        <!-- http://pygments.org/media/pygments_style.css -->
+        <link href="https://x.cs50.net/pygments.css" rel="stylesheet">
+
+        <link href="https://x.cs50.net/styles.css" rel="stylesheet">
+
+        <meta name="google-translate-customization" content="83dad8c46b6d7de3-b92d8f963efb3caa-g23dd9b261bcb76f6-d">
+
+        <script src="./This is CS50x._files/jquery.min.js"></script>
+        <script src="./This is CS50x._files/cs50.analytics.js"></script>
+        <script src="./This is CS50x._files/scripts.js"></script>
+
+        <title>This is CS50x.</title>
+
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="./This is CS50x._files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./This is CS50x._files/main.js"></script><script type="text/javascript" charset="UTF-8" src="./This is CS50x._files/element_main.js"></script></head>
+    <body style="position: relative; min-height: 100%; top: 0px;">
+
+      <h1>This is CS50x.</h1>
+
+      <div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" style="display: inline;"><select class="goog-te-combo"><option value="">Select Language</option><option value="af">Afrikaans</option><option value="sq">Albanian</option><option value="ar">Arabic</option><option value="hy">Armenian</option><option value="az">Azerbaijani</option><option value="eu">Basque</option><option value="be">Belarusian</option><option value="bn">Bengali</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option><option value="zh-CN">Chinese (Simplified)</option><option value="zh-TW">Chinese (Traditional)</option><option value="hr">Croatian</option><option value="cs">Czech</option><option value="da">Danish</option><option value="nl">Dutch</option><option value="eo">Esperanto</option><option value="et">Estonian</option><option value="tl">Filipino</option><option value="fi">Finnish</option><option value="fr">French</option><option value="gl">Galician</option><option value="ka">Georgian</option><option value="de">German</option><option value="el">Greek</option><option value="gu">Gujarati</option><option value="ht">Haitian Creole</option><option value="iw">Hebrew</option><option value="hi">Hindi</option><option value="hu">Hungarian</option><option value="is">Icelandic</option><option value="id">Indonesian</option><option value="ga">Irish</option><option value="it">Italian</option><option value="ja">Japanese</option><option value="kn">Kannada</option><option value="ko">Korean</option><option value="lo">Lao</option><option value="la">Latin</option><option value="lv">Latvian</option><option value="lt">Lithuanian</option><option value="mk">Macedonian</option><option value="ms">Malay</option><option value="mt">Maltese</option><option value="no">Norwegian</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ro">Romanian</option><option value="ru">Russian</option><option value="sr">Serbian</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option value="es">Spanish</option><option value="sw">Swahili</option><option value="sv">Swedish</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="th">Thai</option><option value="tr">Turkish</option><option value="uk">Ukrainian</option><option value="ur">Urdu</option><option value="vi">Vietnamese</option><option value="cy">Welsh</option><option value="yi">Yiddish</option></select></div>&nbsp;&nbsp;Powered by <span style="white-space:nowrap"><a class="goog-logo-link" href="http://translate.google.com/" target="_blank"><img src="./This is CS50x._files/google_logo_41.png" width="37px" height="13px" style="padding-right: 3px">Translate</a></span></div></div><script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, autoDisplay: false, gaTrack: true, gaId: 'UA-8162502-35'}, 'google_translate_element');
+        }
+        </script><script type="text/javascript" src="./This is CS50x._files/element.js"></script>
+       
+      <div>
+        <h1 id="toc_287">Problem Set 7: C$50 Finance</h1>
+
+<h2 id="toc_288">Objectives.</h2>
+
+<ul>
+<li>  Introduce you to HTML, CSS, PHP, and SQL.</li>
+<li>  Teach you how to teach yourself new languages.</li>
+</ul>
+
+<h2 id="toc_289">Recommended Reading.</h2>
+
+<ul>
+<li>  <a href="http://diveintohtml5.info/">http://diveintohtml5.info</a></li>
+<li>  <a href="http://en.wikipedia.org/wiki/Virtual_hosting">http://en.wikipedia.org/wiki/Virtual_hosting</a></li>
+<li>  <a href="http://php.net/manual/en/langref.php">http://php.net/manual/en/langref.php</a></li>
+<li>  <a href="http://twitter.github.com/bootstrap/base-css.html">http://twitter.github.com/bootstrap/base-css.html</a></li>
+</ul>
+
+<h2 id="toc_290">NOTICE.</h2>
+
+<p>For this problem set, you are welcome and encouraged to consult "outside resources," including books, the Web, strangers, and friends, as you teach yourself more about HTML, CSS, PHP, and SQL, so long as your work overall is ultimately your own.  In other words, there remains a line, even if not precisely defined, between learning from others and presenting the work of others as your own.</p>
+
+<p>You may adopt or adapt snippets of code written by others (whether found in some book, online, or elsewhere), so long as you cite (in the form of CSS, HTML, or PHP comments) the origins thereof.</p>
+
+<p>And you may learn from your classmates, so long as moments of counsel do not devolve into "show me your code" or "write this for me."  You may not, to be clear, examine the source code of classmates.</p>
+
+<h1 id="toc_291">A Section of Questions.</h1>
+
+<p>You're welcome to dive into these questions on your own, but know that they'll also be explored in section!  Instead of using CS50 Run or CS50 Spaces for these questions, you'll need to use the CS50 Appliance.</p>
+
+<ul>
+<li><p>Unlike C, PHP is a "dynamically-typed" language.   (C is "statically" typed.)  What does this mean, you ask?  Well, say goodbye to all of those <code class="notranslate">char</code>, <code class="notranslate">float</code>, <code class="notranslate">int</code>, and other keywords you used to use when declaring variables and functions in C!  In PHP, a variable's type is determined by the value that it's currently holding.</p>
+
+<p>Type the following code into a file called <code class="notranslate">dynamic.php</code>:</p>
+<div class="notranslate syntax"><pre><span class="cp">&lt;?php</span>
+
+    <span class="nv">$var</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="nb">printf</span><span class="p">(</span><span class="s2">"var is a %s</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="nb">gettype</span><span class="p">(</span><span class="nv">$var</span><span class="p">));</span>
+
+    <span class="nv">$var</span> <span class="o">=</span> <span class="s2">"cs50 rocks!"</span><span class="p">;</span>
+    <span class="nb">printf</span><span class="p">(</span><span class="s2">"var is a %s</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="nb">gettype</span><span class="p">(</span><span class="nv">$var</span><span class="p">));</span>
+
+    <span class="nv">$var</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="nb">printf</span><span class="p">(</span><span class="s2">"var is a %s</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="nb">gettype</span><span class="p">(</span><span class="nv">$var</span><span class="p">));</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+<p>Now run the file using</p>
+<div class="notranslate syntax"><pre>php dynamic.php
+</pre></div>
+<p>That tells the PHP interpreter, called <code class="notranslate">php</code>, to run the PHP code in <code class="notranslate">dynamic.php</code>.  If you have any errors in the file, the interpreter will tell you!</p>
+
+<p>Back to our dynamic typing: pretty cool, eh?  You definitely couldn't do that in C!  Now, see if you can figure out the type of each of the following values.  See <a href="http://php.net/manual/en/language.types.php">http://php.net/manual/en/language.types.php</a> for reference!</p>
+
+<ul>
+<li>  <code class="notranslate">3.50</code></li>
+<li>  <code class="notranslate">["a" =&gt; 1, "b" =&gt; 2, "c" =&gt; 3]</code></li>
+<li>  <code class="notranslate">fopen("dynamic.php", "r")</code></li>
+<li>  <code class="notranslate">NULL</code></li>
+</ul></li>
+<li><p>One feature of PHP's type system (for better or for worse!) is its ability to juggle types.  When you write a line of PHP code that combines values of different types, PHP will try to do the sensible thing.  Try out each of the following lines of PHP code.  What's printed out?  Is it what you expected?  Why or why not?</p>
+
+<ul>
+<li>  <code class="notranslate">print("1" + 2);</code></li>
+<li>  <code class="notranslate">print("CS" + 50);</code></li>
+<li>  <code class="notranslate">print(1 + "2");</code></li>
+<li>  <code class="notranslate">print(90 + "9 bottles of beer on the wall");</code></li>
+<li>  <code class="notranslate">print(10 / 7);</code></li>
+<li>  <code class="notranslate">print(7 + true);</code></li>
+</ul></li>
+<li><p>In PHP, the <code class="notranslate">array</code> type is different from what you're used to in C.  Indeed, you may have already noticed this above when you saw that </p>
+<div class="notranslate syntax"><pre><span class="x">["a" =&gt; 1, "b" =&gt; 2, "c" =&gt; 3]</span>
+</pre></div>
+<p>is of type <code class="notranslate">array</code>.  The <code class="notranslate">[]</code> syntax is indeed reminiscent of C arrays, but the funky <code class="notranslate">=&gt;</code> syntax doesn't look array-like at all.  Indeed, an array (or, more precisely, an "associative array") in PHP is more similar to a hash table, a collection of keys and values, whereby the key is used to store and retrieve a particular value.  The <code class="notranslate">=&gt;</code> syntax specifies a key <code class="notranslate">=&gt;</code> value pair, so if you have an array like</p>
+<div class="notranslate syntax"><pre><span class="x">$arr = ["a" =&gt; 1, "b" =&gt; 2, "c" =&gt; 3];</span>
+</pre></div>
+<p>then the value of</p>
+<div class="notranslate syntax"><pre><span class="x">$arr["a"]</span>
+</pre></div>
+<p>is <code class="notranslate">1</code> and the value of</p>
+<div class="notranslate syntax"><pre><span class="x">$arr["b"];</span>
+</pre></div>
+<p>is <code class="notranslate">2</code>.  And while it's true that you can indeed use a PHP array like a C array, as in</p>
+<div class="notranslate syntax"><pre><span class="x">$arr = [0, 1, 2, 3, 4, 5];</span>
+</pre></div>
+<p>what's actually happening under the hood is that you're getting</p>
+<div class="notranslate syntax"><pre><span class="x">$arr = [0 =&gt; 0, 1 =&gt; 1, 2 =&gt; 2, 3 =&gt; 3, 4 =&gt; 4, 5 =&gt; 5];</span>
+</pre></div>
+<p>whereby PHP automatically generates index-like keys whenever you don't specify a key for a value.</p>
+
+<p>Anyway, how nice is it that you don't have to deal with hash functions, linked lists, or anything like that!  Since working with hash tables is so easy now, here's a fun puzzle to work on.  Open up a file called <code class="notranslate">unique.php</code> and in it write a PHP program (also known as a "script") that takes a single filename as input and then prints out all of the unique words in that file, sorted in alphabetical order.  You may assume that the input file will contain one word per line.</p>
+
+<p>You'll definitely find PHP's <code class="notranslate">$argv</code> array to be quite helpful here: Google around for details if you're unsure how it works (though it's basically the same as in C).  Likewise, your old friends <code class="notranslate">fopen</code> and <code class="notranslate">fclose</code> have made their way over from C land as well, though you might find another PHP function called <code class="notranslate">file</code> of interest.  And for sorting... well, you can always dig up your old sorting code from before, or you can use the built-in <code class="notranslate">sort</code> function.  We suggest the latter!</p></li>
+<li><p>You'll spend a lot of your time in PHP working with strings.  Fortunately, dealing with strings in PHP is <em>much</em> nicer than in C!</p>
+
+<p>In PHP, you can specify a string either with single quotes (as you would a character in C), or with double quotes (as you would a string literal in C).  You get different behavior depending on which style you use.</p>
+
+<p>With single quotes, you can't use any special "escape" sequences like <code class="notranslate">\n</code>, and you can't embed variables (called "string interpolation," though more on that in a bit!).  Single-quoted strings are handy when you want a string without having to constantly escape chars that have special meaning, like <code class="notranslate">\</code>, <code class="notranslate">{</code>, <code class="notranslate">$</code>, and so forth.</p>
+
+<p>However, sometimes you want to use special characters like <code class="notranslate">\n</code>: for that, you'll need to use the double-quote syntax. There's another benefit to using the double quotes: you can "interpolate" variables inside of the string so that the variable's value gets added to the string at that position, much like when you use a format string like <code class="notranslate">"Hello, %s!"</code> in C with <code class="notranslate">printf</code>.  Consider the below.</p>
+<div class="notranslate syntax"><pre><span class="x">$name = "CS50";</span>
+
+<span class="x">// prints out "Hello, CS50!" with a newline after</span>
+<span class="x">print("Hello, $name!\n");</span>
+</pre></div>
+<p>Of course, you can also achieve the same effect with the concatenation operator (<code class="notranslate">.</code>), as in the below.</p>
+<div class="notranslate syntax"><pre><span class="x">print("Hello, " . $name . "\n");</span>
+</pre></div>
+<p>Anyway, when building websites with PHP, odds are you'll spend some quality time with <code class="notranslate">print</code> (or <code class="notranslate">printf</code> or <code class="notranslate">echo</code> or even <tt>&lt;?=</tt>), and string interpolation because one of the benefits of PHP is that it allows you to generate HTML programmatically instead of writing it out by hand.  Imagine, for instance, that you want to build an HTML form that allows the user to select his or her concentration from a drop-down.  One go at it looks like this:</p>
+<div class="notranslate syntax"><pre><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"concentration"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>African and African American Studies<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2"</span><span class="nt">&gt;</span>Anthropology<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"3"</span><span class="nt">&gt;</span>Applied Mathematics<span class="nt">&lt;/option&gt;</span>
+    ...
+<span class="nt">&lt;/select&gt;</span>
+</pre></div>
+<p>You can see how this can quickly become a huge pain!  Fortunately, with PHP, we can make this go a lot faster.  In</p>
+
+<p><a href="http://cdn.cs50.net/2012/fall/sections/9/section9/concentrations.txt">http://cdn.cs50.net/2012/fall/sections/9/section9/concentrations.txt</a></p>
+
+<p>we have a simple text file containing all of Harvard's undergraduate concentrations, in alphabetical order. Download this file using <code class="notranslate">wget</code> (remember how?), and then in a file called <code class="notranslate">concentrations.php</code>, write PHP code to programmatically open the <code class="notranslate">concentrations.txt</code> file, read it line by line, and build an HTML drop-down menu containing the alphabetized list of concentrations.  You can just print the result to <code class="notranslate">stdout</code> using <code class="notranslate">echo</code>.  And so that "African and African American Studies" isn't the default concentration, best to put a blank (i.e., valueless) option at the very top!</p>
+
+<p>To test your implementation, save the output of your program to a file like so</p>
+<div class="notranslate syntax"><pre>php concentrations.php &gt; concentrations.html
+</pre></div>
+<p>and then open up <code class="notranslate">concentrations.html</code> using the browser of your choice!</p></li>
+</ul>
+
+<h2 id="toc_292">Getting Started.</h2>
+
+<ul>
+<li><p>Start up your appliance and, upon reaching John Harvard's desktop, open a terminal window (remember how?) and execute</p>
+<div class="notranslate syntax"><pre>update50
+</pre></div>
+<p>to ensure that your appliance is up-to-date!</p>
+
+<p>Next, follow the directions at</p>
+
+<p><a href="https://manual.cs50.net/Appliance#How_to_Enable_Apache">https://manual.cs50.net/Appliance#How_to_Enable_Apache</a></p>
+
+<p>to enable the appliance's web server (Apache).  And then follow the directions at</p>
+
+<p><a href="https://manual.cs50.net/Appliance#How_to_Enable_MySQL">https://manual.cs50.net/Appliance#How_to_Enable_MySQL</a></p>
+
+<p>to enable the appliance's database server (MySQL).</p></li>
+<li><p>Like Problem Set 6, this problem set comes with some distribution code that you'll need to download before getting started.     Go ahead and execute</p>
+<div class="notranslate syntax"><pre>cd ~/vhosts/localhost
+</pre></div>
+<p>in order to navigate to your <code class="notranslate">~/vhosts/localhost</code> directory.  Then execute</p>
+<div class="notranslate syntax"><pre>wget http://cdn.cs50.net/2012/fall/psets/7/pset7.zip
+</pre></div>
+<p>in order to download a ZIP (i.e., compressed version) of this problem set's distro.  If you then execute</p>
+<div class="notranslate syntax"><pre>ls
+</pre></div>
+<p>you should see that you now have a file called <code class="notranslate">pset7.zip</code> in your <code class="notranslate">~/vhosts/localhost</code> directory.  Unzip it by executing the below.</p>
+<div class="notranslate syntax"><pre>unzip pset7.zip
+</pre></div>
+<p>If you again execute</p>
+<div class="notranslate syntax"><pre>ls
+</pre></div>
+<p>you should see that you now also have directories called <code class="notranslate">html</code>, <code class="notranslate">includes</code>, and <code class="notranslate">templates</code>.  You're now welcome to delete the ZIP file with the below.</p>
+<div class="notranslate syntax"><pre>rm -f pset7.zip
+</pre></div></li>
+<li><p>Next, ensure a few directories are world-executable by executing</p>
+<div class="notranslate syntax"><pre>chmod a+x ~
+chmod a+x ~/vhosts
+chmod a+x ~/vhosts/localhost
+chmod a+x ~/vhosts/localhost/html
+</pre></div>
+<p>so that the appliance's web server (and you, from a browser) will be able to access your work.  Then, navigate your way to <code class="notranslate">~/vhosts/localhost/html</code> by executing the below.</p>
+<div class="notranslate syntax"><pre>cd ~/vhosts/localhost/html
+</pre></div>
+<p>Ensure that a few more directories are word-executable by executing the below.</p>
+<div class="notranslate syntax"><pre>chmod a+x css img js
+</pre></div>
+<p>Finally, ensure that the files within those directories are world-readable by executing the below.</p>
+<div class="notranslate syntax"><pre>chmod a+r css/* img/* js/*
+</pre></div>
+<p>If unfamiliar, <code class="notranslate">*</code> is a "wildcard character," so <code class="notranslate">css/*</code>, for instance, simply means "all files within the <code class="notranslate">css</code> directory."</p>
+
+<p>For security's sake, don't make <code class="notranslate">~/vhosts/localhost/includes</code> or <code class="notranslate">~/vhosts/localhost/templates</code> world-executable (or their contents world-readable), as they shouldn't be accessible to the whole world (only to your PHP code, as you'll soon see).</p></li>
+<li><p>Even though your code for this problem set will live in <code class="notranslate">~/vhosts/localhost</code>, let's ensure that it's nonetheless backed up via Dropbox (assuming you set up Dropbox inside of the appliance).  In a terminal window, execute</p>
+<div class="notranslate syntax"><pre>ln -s ~/vhosts/localhost ~/Dropbox
+</pre></div>
+<p>in order to create a "symbolic link" (i.e., alias or shortcut) to your <code class="notranslate">~/vhosts/localhost</code> directory within your <code class="notranslate">~/Dropbox</code> directory so that Dropbox knows to start backing it up.</p></li>
+<li><p>Alright, time for a test!  Open up Chrome inside of the appliance and visit the URL below.  Incidentally, you can also access C$50 Finance within the appliance at <a href="http://127.0.0.1/">http://127.0.0.1/</a>, since 127.0.0.1 is the appliance's (and most computers') "loopback" address.</p>
+
+<p><a class="notranslate" href="http://localhost/" target="_blank" title="">http://localhost/</a></p>
+
+<p>You should find yourself redirected to C$50 Finance!  (If you instead see Forbidden, odds are you missed a step earlier; best to try all those chmod steps again.)  If you try logging into C$50 Finance with a username of, oh, <strong>skroob</strong> and a password of <strong>12345</strong>, you should encounter an error about an <strong>Unknown database</strong>.  That's simply because you haven't created it yet!  Let's create it.</p>
+
+<p>Head to</p>
+
+<p><a class="notranslate" href="http://localhost/phpMyAdmin" target="_blank" title="">http://localhost/phpMyAdmin</a></p>
+
+<p>using Chrome <u>inside of the appliance</u> to access phpMyAdmin, a Web-based tool (that happens to be written in PHP) with which you can manage MySQL databases.   (MySQL is a free, open-source database that CS50 Apps, Facebook, and lots of other sites use.)  Log in as John Harvard if prompted (with a username of <strong>jharvard</strong> and a password of <strong>crimson</strong>).  You should then find yourself at phpMyAdmin's main page.  In phpMyAdmin's top-left corner, you should see <strong>No databases</strong>.  Normally, you can create a database by clicking phpMyAdmin's <strong>Databases</strong> tab, but you can also execute some SQL commands manually.  Go ahead and visit</p>
+
+<p><a href="http://cdn.cs50.net/2012/fall/psets/7/pset7.sql">http://cdn.cs50.net/2012/fall/psets/7/pset7.sql</a></p>
+
+<p>using Chrome <u>inside of the appliance</u>, and you should see a whole bunch of SQL.  Highlight it all, then select <strong>Edit &gt; Copy</strong> (or hit ctrl-C), then return to phpMyAdmin.  Click phpMyAdmin's <strong>SQL</strong> tab, and paste everything you copied into that page's big text box.  Skim what you just pasted to get a sense of the commands you're about to execute, then click <strong>Go</strong>.  You should then see a green banner, proclaiming <strong>Your SQL query has been executed successfully</strong>.  In phpMyAdmin's top-left corner, you should now see link to a database called <strong>pset7</strong>, beneath which is a link to a table called <strong>users</strong>.  But more on those later.</p>
+
+<p>Return to </p>
+
+<p><a class="notranslate" href="http://localhost/" target="_blank" title="">http://localhost/</a></p>
+
+<p>using Chrome <u>inside of the appliance</u> and reload that page.  Then try to log in with a username of <strong>skroob</strong> and a password of <strong>12345</strong>.  This time, you should see some construction.</p></li>
+<li><p>Recall that the appliance has an "IP address," a number of the form w.x.y.z that's displayed in the appliance's bottom-right corner.  Via that IP address can you access the appliance via HTTP (and other protocols) from your own computer (but not from some other computer on the Internet).  Confirm as much by visiting</p>
+
+<p><a href="http://w.x.y.z/">http://w.x.y.z/</a></p>
+
+<p>using Chrome <u>inside of the appliance</u>, where w.x.y.z is the appliance's IP address (not w.x.y.z literally).  You should again find yourself at C$50 Finance.</p>
+
+<p>Now open up a browser <u>on your own computer</u> and visit the same URL:</p>
+
+<p><a href="http://w.x.y.z/">http://w.x.y.z/</a></p>
+
+<p>You should again see the same.  Note that you <u>cannot</u> access the appliance from your own computer via the <code class="notranslate">localhost</code> URL, since, when using a browser on your own computer, <code class="notranslate">localhost</code> refers to your own computer, which probably isn't running a web server!</p>
+
+<p>If unable to access the appliance from your own computer via its IP address, not to worry.  Simply use Chrome inside of the appliance! </p></li>
+<li><p>Okay, time for a heads-up.  Anytime you create a new file or directory in <code class="notranslate">~/vhosts/localhost</code> or some subdirectory therein for this problem set, you'll want to set its permissions with <code class="notranslate">chmod</code>.  Thus far, we've relied on <code class="notranslate">a+r</code> and <code class="notranslate">a+x</code>, but let's empower you with more precise control over permissions.</p>
+
+<p>Henceforth, for any PHP file, file, that you create, execute</p>
+<div class="notranslate syntax"><pre>chmod 600 file
+</pre></div>
+<p>so that it's accessible only by you (and the appliance's webserver).  Recall that we don't want visitors to see the contents of PHP files; rather, we want them to see the output of PHP files once executed (or, rather, interpreted) by the appliance's web server.</p>
+
+<p>For any non-PHP file, file, that you create (or upload), execute</p>
+<div class="notranslate syntax"><pre>chmod 644 file
+</pre></div>
+<p>so that it's accessible via a browser (if that's indeed your intention).</p>
+
+<p>And for any directory, directory, that you create, execute</p>
+<div class="notranslate syntax"><pre>chmod 711 directory
+</pre></div>
+<p>so that its contents are accessible via a browser (if that's indeed your intention).</p>
+
+<p>What's with all these numbers we're having you type?  Well, <code class="notranslate">600</code> happens to mean <code class="notranslate">rw-------</code>, and so all PHP files are made readable and writable only by you; <code class="notranslate">644</code> happens to mean <code class="notranslate">rw-r--r--</code>, and so all non-PHP files are to be readable and writable by you and just readable by everyone else; and <code class="notranslate">711</code> happens to mean <code class="notranslate">rwx--x--x</code>, and so all directories are to be readable, writable, and executable by you and just executable by everyone else.  Wait a minute, don't we want everyone to be able to read (i.e., interpret) your PHP files?  Nope!  For security reasons, PHP-based web pages are interpreted "as you" (i.e., under John Harvard's username) in the appliance.  For the curious, we're using suPHP (<a href="http://www.suphp.org/">http://www.suphp.org/</a>) with Apache (<a href="http://httpd.apache.org/">http://httpd.apache.org/</a>).</p>
+
+<p>Okay, still, what's with all those numbers?  Well, think of <code class="notranslate">rw-r--r--</code> as representing three triples of bits, the first triple of which, to be clear, is <code class="notranslate">rw-</code>.  Imagine that <code class="notranslate">-</code> represents <code class="notranslate">0</code>, whereas <code class="notranslate">r</code>, <code class="notranslate">w</code>, and <code class="notranslate">x</code> represent <code class="notranslate">1</code>.  And, so, this same triple (<code class="notranslate">rw-</code>) is just <code class="notranslate">110</code> in binary, or <code class="notranslate">6</code> in decimal!  The other two triples, <code class="notranslate">r--</code> and <code class="notranslate">r--</code>, then, are just <code class="notranslate">100</code> and <code class="notranslate">100</code> in binary, or <code class="notranslate">4</code> and <code class="notranslate">4</code> in decimal!  How, then, to express a pattern like <code class="notranslate">rw-r--r--</code> with numbers?  Why, with <code class="notranslate">644</code>.</p>
+
+<p>Actually, this is a bit of a white lie.  Because you can represent only eight possible values with three bits, these numbers (<code class="notranslate">6</code>, <code class="notranslate">4</code>, and <code class="notranslate">4</code>) are not actually decimal digits but "octal."  So you can now tell your friends that you speak not only binary, decimal, and hexadecimal, but octal as well.</p></li>
+</ul>
+
+<h2 id="toc_293">Yahoo!</h2>
+
+<ul>
+<li><p>If you're not quite sure what it means to buy and sell stocks (i.e., shares of a company), surf on over to the URL below for a tutorial.</p>
+
+<p><a href="http://www.investopedia.com/university/stocks/">http://www.investopedia.com/university/stocks/</a></p>
+
+<p>You're about to implement C$50 Finance, a Web-based tool with which you can manage portfolios of stocks.  Not only will this tool allow you to check real stocks' actual prices and portfolios' values, it will also let you buy (okay, "buy") and sell (fine, "sell") stocks!  (Per Yahoo's fine print, "Quotes delayed [by a few minutes], except where indicated otherwise.")</p></li>
+<li><p>Just the other day, I received the stock tip below in my inbox!</p>
+
+<p><em>"Discovery Ventures Signs Letter Of Intent To Acquire The Willa Gold Deposit"</em></p>
+
+<p>Let's get in on this opportunity now.  Head on over to Yahoo! Finance at the URL below.</p>
+
+<p><a href="http://finance.yahoo.com/">http://finance.yahoo.com/</a></p>
+
+<p>Type the symbol for Discovery Ventures, <strong>DVN.V</strong>, into the text field in that page's top-left corner and click <strong>Get Quotes</strong>.  Odds are you'll see a table like the below.  </p>
+
+<p><img src="./This is CS50x._files/dvn.v.png" alt="Discovery Ventures Inc."></p>
+
+<p>Wow, only 27 cents per share!  That must be a good thing.  Anyhow, notice how Yahoo reports a stock's most recent (i.e., "Last Trade") price ($0.27) and more.  Moreover, scroll down to the page's bottom, and you should see a toolbox like the below.</p>
+
+<p><img src="./This is CS50x._files/toolbox.png" alt="Toolbox"></p>
+
+<p>Looks like Yahoo lets you download all that data.  Go ahead and click <strong>Download Data</strong> to download a file in CSV format (i.e., as comma-separated values).  Open the file in Excel or any text editor (e.g., <code class="notranslate">gedit</code>), and you should see a "row" of values, all excerpted from that table.  It turns out that the link you just clicked led to the URL below.</p>
+
+<p><a href="http://download.finance.yahoo.com/d/quotes.csv?s=DVN.V&f=sl1d1t1c1ohgv&e=.csv">http://download.finance.yahoo.com/d/quotes.csv?s=DVN.V&amp;f=sl1d1t1c1ohgv&amp;e=.csv</a></p>
+
+<p>Notice how Discovery Ventures' symbol is embedded in this URL (as the value of the HTTP parameter called <code class="notranslate">s</code>); that's how Yahoo knows whose data to return.  Notice also the value of the HTTP parameter called <code class="notranslate">f</code>; it's a bit cryptic (and officially undocumented), but the value of that parameter tells Yahoo which fields of data to return to you.  If curious as to what they mean, head to the URL below.</p>
+
+<p><a href="http://www.gummy-stuff.org/Yahoo-data.htm">http://www.gummy-stuff.org/Yahoo-data.htm</a></p>
+
+<p>It's worth noting that a lot of websites that integrate data from other websites do so via "screen scraping," a process that requires writing programs that parse (or, really, search) HTML for data of interest (e.g., air fares, stock prices, etc.).  Writing a screen scraper for a site tends to be a nightmare, though, because a site's markup is often a mess, and if the site changes the format of its pages overnight, you need to re-write your scraper.  (See <a href="https://manual.cs50.net/Screen_Scraping">https://manual.cs50.net/Screen_Scraping</a> if curious as to how it can be done nonetheless.)</p>
+
+<p>Thankfully, because Yahoo provides data in CSV, C$50 Finance will avoid screen scraping altogether by downloading (effectively pretending to be a browser) and parsing CSV files instead.  Even more thankfully, we've written that code for you!</p>
+
+<p>In fact, let's turn our attention to the code you've been given.</p></li>
+<li><p>Navigate your way to <code class="notranslate">~/vhosts/localhost/html</code> and open up <code class="notranslate">index.php</code> with <code class="notranslate">gedit</code>.  (Remember how?)  Recall that <code class="notranslate">index.php</code> is the file that's loaded by default when you visit a URL like <a class="notranslate" href="http://localhost/" target="_blank" title="">http://localhost/</a>.  Well, it turns out there's not much PHP code in this file.  And there isn't any HTML at all.  Rather, index.php "requires" <code class="notranslate">config.php</code> (which is in a directory called includes in <code class="notranslate">index.php</code>'s parent directory).  And <code class="notranslate">index.php</code> then calls <code class="notranslate">render</code> (a function implemented in a file called <code class="notranslate">functions.php</code> that can also be found inside of includes) in order to render (i.e., output) a template called <code class="notranslate">portfolio.php</code> (which is in a directory called <code class="notranslate">templates</code> in <code class="notranslate">index.php</code>'s parent directory).</p>
+
+<p>It turns out that <code class="notranslate">index.php</code> is considered a "controller," whereby its purpose in life is to control the behavior of your website when a user visits <a class="notranslate" href="http://localhost/" target="_blank" title="">http://localhost/</a> (or, equivalently, <a class="notranslate" href="http://localhost/index.php" target="_blank" title="">http://localhost/index.php</a>).  Eventually, you'll need to add some more PHP code to this file in order to pass more than just title to render.  But for now, let's take a look at <code class="notranslate">portfolio.php</code>, the template that this controller ultimately renders.  </p>
+
+<p>Navigate your way to <code class="notranslate">~/vhosts/localhost/templates</code> and open up <code class="notranslate">portfolio.php</code> with <code class="notranslate">gedit</code>.  Ah, there's some HTML.  Of course, it's not very interesting HTML, but it does explain why your website is "under construction," thanks to the GIF referenced therein.</p>
+
+<p>Now navigate your way to <code class="notranslate">~/vhosts/localhost/includes</code> and open up <code class="notranslate">config.php</code> with <code class="notranslate">gedit</code>.  Recall that <code class="notranslate">config.php</code> was required by <code class="notranslate">index.php</code>.  Notice how <code class="notranslate">config.php</code> first enables display of all errors (and warnings and notices, which are less severe errors) so that you're aware of any syntactical mistakes (and more) in your code.  Notice, too, that <code class="notranslate">config.php</code> itself requires two other files: <code class="notranslate">constants.php</code> and <code class="notranslate">functions.php</code>.  Next, <code class="notranslate">config.php</code> calls <code class="notranslate">session_start</code> in order to enable <code class="notranslate">$_SESSION</code>, a "superglobal" variable via which we'll remember that a user is logged in.   (Even though HTTP is a "stateless" protocol, whereby browsers are supposed to disconnect from servers as soon as they're done downloading pages, "cookies" allow browsers to remind servers who they or, really, you are on subsequent requests for content.  PHP uses "session cookies" to provide you with <code class="notranslate">$_SESSION</code>, an associative array in which you can store any data to which you'd like to have access for the duration of some user's visit.  The moment a user ends his or her "session" (i.e., visit) by quitting his or her browser, the contents of <code class="notranslate">$_SESSION</code> are lost for that user specifically because the next time that user visits, he or she will be assigned a new cookie!)  Meanwhile, <code class="notranslate">config.php</code> uses a "regular expression" (via a call to <code class="notranslate">preg_match</code>) to redirect the users to <code class="notranslate">login.php</code> anytime they visit some page other than <code class="notranslate">login.php</code>, <code class="notranslate">logout.php</code>, and <code class="notranslate">register.php</code>, assuming <code class="notranslate">$_SESSION["id"]</code> isn't yet set.  In other words, that block of code requires users to log in if they aren't logged in already (and if they aren't already at one of those three pages).</p>
+
+<p>Okay, now open up <code class="notranslate">functions.php</code> with <code class="notranslate">gedit</code>.  Interesting, it looks like <code class="notranslate">functions.php</code> requires <code class="notranslate">constants.php</code>.  More on that file, though, in a moment.   It looks like <code class="notranslate">functions.php</code> also defines a bunch of functions, the first of which is <code class="notranslate">apologize</code>, which you can call anytime you need to apologize to the user (because they made some mistake).  Defined next is <code class="notranslate">dump</code>, which you're welcome to call anytime you want to see the contents (perhaps recursively) of some variable while developing your site.  That function is only for diagnostic purposes, though.  Be sure to remove all calls thereto before submitting your work.  Next in the file is <code class="notranslate">logout</code>, a function that logs users out by destroying their sessions.  Thereafter is <code class="notranslate">lookup</code>, a function that queries Yahoo Finance for stocks' prices and more.  More on that, though, in a bit.  Up next is <code class="notranslate">query</code>, a function that executes a SQL query and then returns the result set's rows, if any.  Below it is <code class="notranslate">redirect</code>, a function that allows you to redirect users from one URL to another.  Last in the file is <code class="notranslate">render</code>, the function that <code class="notranslate">index.php</code> called in order to render <code class="notranslate">portfolio.php</code>.  The function then "extracts" those values into the local scope (whereby a key of <code class="notranslate">"foo"</code> with a value of <code class="notranslate">"bar"</code> in <code class="notranslate">$values</code> becomes a local variable called <code class="notranslate">$foo</code> with a value of <code class="notranslate">"bar"</code>).  And it then requires <code class="notranslate">header.php</code> followed by <code class="notranslate">$template</code> followed by <code class="notranslate">footer.php</code>, effectively outputting all three.</p>
+
+<p>In fact, navigate your way back to <code class="notranslate">~/vhosts/localhost/templates</code> and open up <code class="notranslate">header.php</code> and <code class="notranslate">footer.php</code> in <code class="notranslate">gedit</code>.  Ah, even more HTML!  Thanks to render, those files' contents will be included at the top and bottom, respectively, of each of your pages.  As a result, each of your pages will have access to <a class="notranslate" href="http://twitter.github.com/bootstrap/" target="_blank" title="">Twitter's Bootstrap library</a>, per the link and script tags therein.   And each page will have at least four <code class="notranslate">div</code> elements, three of which have unique IDs (<code class="notranslate">top</code>, <code class="notranslate">middle</code>, and <code class="notranslate">bottom</code>), if only to make styling them with CSS easier.  Even more interestingly, though, notice how <code class="notranslate">header.php</code> conditionally outputs <code class="notranslate">$title</code>, if it is set.  Remember how <code class="notranslate">index.php</code> contained the below line of code?</p>
+<div class="notranslate syntax"><pre><span class="x">render("portfolio.php", ["title" =&gt; "Portfolio"]);</span>
+</pre></div>
+<p>Well, because <code class="notranslate">render</code> calls <code class="notranslate">extract</code> on that second argument, an array, before requiring <code class="notranslate">header.php</code>, <code class="notranslate">header.php</code> ends up having access to a variable called <code class="notranslate">$title</code>.  Neat, eh?  You can pass even more values into a template simply by separating such key/value pairs with a comma, as in the below.</p>
+<div class="notranslate syntax"><pre><span class="x">render("portfolio.php", ["cash" =&gt; 10000.00, "title" =&gt; "Portfolio"]);</span>
+</pre></div>
+<p>Okay, now open up <code class="notranslate">constants.php</code> in <code class="notranslate">~/vhosts/localhost/includes</code> (which, recall, <code class="notranslate">config.php</code> required).  Suffice it to say, this file defines a bunch of constants, but you shouldn't need to change any of them.</p>
+
+<p>Navigate your way back to <code class="notranslate">~/vhosts/localhost/html</code> and open up <code class="notranslate">login.php</code>, another controller, with <code class="notranslate">gedit</code>.  This controller's a bit more involved than index.php as it handles the authentication of users.  Read through its lines carefully, taking note of how it how it queries the appliance's MySQL database using that <code class="notranslate">query</code> function from <code class="notranslate">functions.php</code>.  That function (which we wrote) essentially simplifies use of <a class="notranslate" href="http://www.php.net/manual/en/class.pdo.php" target="_blank" title="">PDO</a> (PHP Data Objects), a library with which you can query MySQL (and other) databases.   Per its definition in <code class="notranslate">functions.php</code>, the function accepts one or more arguments: a string of SQL followed by a comma-separated list of zero or more parameters that can be plugged into that string, not unlike <code class="notranslate">printf</code>.  Whereas <code class="notranslate">printf</code> uses <code class="notranslate">%d</code>, <code class="notranslate">%s</code>, and the like for placeholders, though, <code class="notranslate">query</code> simply relies on question marks, no matter the type of value.  And so the effect of</p>
+<div class="notranslate syntax"><pre><span class="x">query("SELECT * FROM users WHERE username = ?", $_POST["username"]);</span>
+</pre></div>
+<p>in <code class="notranslate">login.php</code> is to replace <code class="notranslate">?</code> with whatever username has been submitted (via POST) via an HTML form.  (The function also ensures that any such placeholders' values are properly escaped so that your code is not vulnerable to "SQL injection attacks.")  For instance, suppose that President Skroob tries to log into C$50 Finance by inputting his username and password.  That line of code will ultimately execute the SQL statement below.</p>
+<div class="notranslate syntax"><pre>SELECT * FROM users WHERE username='skroob' 
+</pre></div>
+<p>Beware, though.  PHP is weakly (i.e., loosely) typed, and so functions like query can actually return different types.  Indeed, even though query usually returns an array of rows (thanks to its invocation of PDO's <code class="notranslate">fetchAll</code>), it can also return <code class="notranslate">false</code> in case of errors.  But, unlike <code class="notranslate">SELECT</code>s, some SQL queries (e.g., <code class="notranslate">DELETE</code>s, <code class="notranslate">UPDATE</code>s, and <code class="notranslate">INSERT</code>s) don't actually return rows, and so the array that <code class="notranslate">query</code> returns might sometimes be empty.  When checking the return value of <code class="notranslate">query</code> for <code class="notranslate">false</code>, then, take care not to use <code class="notranslate">==</code>, because it turns out than an empty array is <code class="notranslate">==</code> to <code class="notranslate">false</code> because of implicit casting.  But an empty array does not necessarily signify an error, only <code class="notranslate">false</code> does!  Use, then, PHP's <code class="notranslate">===</code> (or <code class="notranslate">!==</code>) operator when checking return values for <code class="notranslate">false</code>, which compares its operands' values and types (not just their values), as in the below.</p>
+<div class="notranslate syntax"><pre><span class="x">$result = query("INSERT INTO users (username, hash, cash) VALUES(?, ?, 10000.00)", $_POST["username"], crypt($_POST["password"]));</span>
+<span class="x">if ($result === false)</span>
+<span class="x">{</span>
+<span class="x">    // the INSERT failed, presumably because username already existed</span>
+<span class="x">}</span>
+</pre></div>
+<p>See <a href="http://php.net/manual/en/language.operators.comparison.php">http://php.net/manual/en/language.operators.comparison.php</a> for more details.</p>
+
+<p>Anyhow, notice too that <code class="notranslate">login.php</code> "remembers" that a user is logged in by storing his or her unique ID inside of <code class="notranslate">$_SESSION</code>.  As before, this controller does not contain any HTML.  Rather, it calls <code class="notranslate">apologize</code> or renders <code class="notranslate">login_form.php</code> as needed.  In fact, open up <code class="notranslate">login_form.php</code> in <code class="notranslate">~/vhosts/localhost/templates</code> with <code class="notranslate">gedit</code>.  Most of that file is HTML that's stylized via some of Bootstrap's CSS classes, but notice how the HTML form therein POSTs to <code class="notranslate">login.php</code>.  Just for good measure, take a peek at <code class="notranslate">apology.php</code> while you're in that directory as well.  And also take a peek at <code class="notranslate">logout.php</code> back in <code class="notranslate">~/vhosts/localhost/html</code> to see how it logs out a user. </p>
+
+<p>Alright, now navigate your way to <code class="notranslate">~/vhosts/localhost/html/css</code> and open up <code class="notranslate">styles.css</code> with <code class="notranslate">gedit</code>.  Notice how this file already has a few "selectors" so that you don't have to include style attributes the elements matched by those selectors.  No need to master CSS for this problem set, but do know that you should not have more than one <code class="notranslate">div</code> element per page whose <code class="notranslate">id</code> attribute has a value of <code class="notranslate">top</code>, more than one <code class="notranslate">div</code> element per page whose <code class="notranslate">id</code> attribute has a value of <code class="notranslate">middle</code>, or more than one <code class="notranslate">div</code> element per page whose <code class="notranslate">id</code> attribute has a value of <code class="notranslate">bottom</code>; an <code class="notranslate">id</code> must be unique.  In any case, you are welcome to modify <code class="notranslate">styles.css</code> as you see fit.</p>
+
+<p>You're also welcome to poke around <code class="notranslate">~/vhosts/localhost/html/js</code>, which contains some JavaScript files.  But no need to use or write any JavaScript for this problem set.  Those files are just there in case you'd like to experiment.</p>
+
+<p>Phew, that was a lot.  Help yourself to a snack.</p></li>
+<li><p>Alright, let's talk about that database we keep mentioning.  So that you have someplace to store users' portfolios, the appliance comes with a MySQL database (called <code class="notranslate">pset7</code>). We've even pre-populated it with a table called <code class="notranslate">users</code> (which is why you were able to log in as President Skroob).  Let's take a look.  </p>
+
+<p>Head back to</p>
+
+<p><a class="notranslate" href="http://localhost/phpMyAdmin/" target="_blank" title="">http://localhost/phpMyAdmin/</a></p>
+
+<p>using Chrome <u>inside of the appliance</u> to access phpMyAdmin.  Log in as John Harvard if prompted (with a username of <strong>jharvard</strong> and a password of <strong>crimson</strong>).  You should then find yourself at phpMyAdmin's main page, in the top-left corner of which is that table called <strong>users</strong>.  Click the name of that table to see its contents.  Ah, some familiar folks.  In fact, there's President Skroob's username and a hash of his password (which is the same as the combination to his luggage)!  </p>
+
+<p>Now click the tab labeled <strong>Structure</strong>.  Ah, some familiar fields.  Recall that <code class="notranslate">login.php</code> generates queries like the below.</p>
+<div class="notranslate syntax"><pre>SELECT id FROM users WHERE username='skroob'
+</pre></div>
+<p>As phpMyAdmin makes clear, this table called users contains three fields: <code class="notranslate">id</code> (the type of which is an <code class="notranslate">INT</code> that's <code class="notranslate">UNSIGNED</code>) along with <code class="notranslate">username</code> and <code class="notranslate">hash</code> (each of whose types is <code class="notranslate">VARCHAR</code>).  It appears that none of these fields is allowed to be <code class="notranslate">NULL</code>, and the maximum length for each of each of <code class="notranslate">username</code> and <code class="notranslate">hash</code> is <code class="notranslate">255</code>.  A neat feature of <code class="notranslate">id</code>, meanwhile, is that it will <code class="notranslate">AUTO_INCREMENT</code>: when inserting a new user into the table, you needn't specify a value for <code class="notranslate">id</code>; the user will be assigned the next available <code class="notranslate">INT</code>.  Finally, if you click <strong>Indexes</strong> (above <strong>Information</strong>), you'll see that this table's <code class="notranslate">PRIMARY</code> key is <code class="notranslate">id</code>, the implication of which is that (as expected) no two users can share the same user ID.  Recall that a primary key is a field with no duplicates (i.e., that is guaranteed to identify rows uniquely).  Of course, <code class="notranslate">username</code> should also be unique across users, and so we have also defined it to be so (per the additional <strong>Yes</strong> under <strong>Unique</strong>).  To be sure, we could have defined username as this table's primary key.  But, for efficiency's sake, the more conventional approach is to use an INT like id.  Incidentally, these fields are called "indexes" because, for primary keys and otherwise unique fields, databases tend to build "indexes," data structures that enable them to find rows quickly by way of those fields.</p>
+
+<p>Make sense?</p></li>
+<li><p>Okay, let's give each of your users some cash.  Assuming you're still on phpMyAdmin's <strong>Structure</strong> tab, you should see a form with which you can add new columns.  Click the radio button immediately to the left of <strong>After</strong>, select <strong>hash</strong> from the drop-down menu, as in the below, then click <strong>Go</strong>.</p>
+
+<p><img src="./This is CS50x._files/add.png" alt="Add"></p>
+
+<p>Via the form that appears, define a field called cash of type <code class="notranslate">DECIMAL</code> with a length of <code class="notranslate">65,4</code>, with a default value of <code class="notranslate">0.0000</code>, and with an attribute of <code class="notranslate">UNSIGNED</code>, as in the below, then click <strong>Save</strong>.</p>
+
+<p><img src="./This is CS50x._files/save.png" alt="Save"></p>
+
+<p>If you pull up the documentation for MySQL at</p>
+
+<p><a href="http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html">http://dev.mysql.com/doc/refman/5.5/en/numeric-types.html</a></p>
+
+<p>you'll see that the <code class="notranslate">DECIMAL</code> data type is used to "store exact numeric data values."  A length of <code class="notranslate">65,4</code> for a <code class="notranslate">DECIMAL</code> means that values for <code class="notranslate">cash</code> can have no more than 65 digits in total, 4 of which can be to the right of the decimal point.  (Ooo, fractions of pennies.  Sounds like <em>Office Space</em>.)  </p>
+
+<p>Okay, return to the tab labeled <strong>Browse</strong> and give everyone $10,000.00 manually.  (In theory, we could have defined <code class="notranslate">cash</code> as having a default value of <code class="notranslate">10000.000</code>, but, in general, best to put such settings in code, not your database, so that they're easier to change.)  The easiest way is to click <strong>Check All</strong>, then click <strong>Change</strong> to the right of the pencil icon.  On the page that appears, change <code class="notranslate">0.0000</code> to <code class="notranslate">10000.0000</code> for each of your users, then click <strong>Go</strong>.  Won't they be happy!</p></li>
+<li><p>It's now time to code!  Let's empower new users to register.</p>
+
+<p>Return to a terminal window, navigate your way to <code class="notranslate">~/vhosts/localhost/templates</code> and execute the below.  (You are welcome, particularly if among those more comfortable, to stray from these filename conventions and structure your site as you see fit, so long as your implementation adheres to all other requirements.)</p>
+<div class="notranslate syntax"><pre>cp login_form.php register_form.php
+</pre></div>
+<p>Then open up <code class="notranslate">register_form.php</code> with <code class="notranslate">gedit</code> and change the value of form's <code class="notranslate">action</code> attribute from <code class="notranslate">login.php</code> to <code class="notranslate">register.php</code>.  Next add an additional field of type <code class="notranslate">password</code> to the HTML form called <code class="notranslate">confirmation</code> so that users are prompted to input their choice of passwords twice (to discourage mistakes).  Finally, change the button's text from <code class="notranslate">Log In</code> to <code class="notranslate">Register</code> and change </p>
+<div class="notranslate syntax"><pre>or <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"register.php"</span><span class="nt">&gt;</span>register<span class="nt">&lt;/a&gt;</span> for an account
+</pre></div>
+<p>to</p>
+<div class="notranslate syntax"><pre>or <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"login.php"</span><span class="nt">&gt;</span>log in<span class="nt">&lt;/a&gt;</span>
+</pre></div>
+<p>so that users can navigate away from this page if they already have accounts.</p>
+
+<p>Then, using <code class="notranslate">gedit</code>, create a new file called <code class="notranslate">register.php</code> with the contents below, taking care to save it in <code class="notranslate">~/vhosts/localhost/html</code>.</p>
+<div class="notranslate syntax"><pre><span class="cp">&lt;?php</span>
+
+    <span class="c1">// configuration</span>
+    <span class="k">require</span><span class="p">(</span><span class="s2">"../includes/config.php"</span><span class="p">);</span>
+
+    <span class="c1">// if form was submitted</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">"REQUEST_METHOD"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"POST"</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// TODO</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="c1">// else render form</span>
+        <span class="nx">render</span><span class="p">(</span><span class="s2">"register_form.php"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"title"</span> <span class="o">=&gt;</span> <span class="s2">"Register"</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+<p>Alright, let's take a look at your work!  Bring up</p>
+
+<p><a class="notranslate" href="http://localhost/login.php" target="_blank" title="">http://localhost/login.php</a></p>
+
+<p>in Chrome <u>inside of the appliance</u> and click that page's link to <code class="notranslate">register.php</code>.  You should then find yourself at http://localhost/register.php.  If anything appears awry, feel free to make tweaks to <code class="notranslate">register_form.php</code> or <code class="notranslate">register.php</code>.  Just be sure to save your changes and then reload the page in the browser.</p>
+
+<p>Of course, <code class="notranslate">register.php</code> doesn't actually register users yet, so it's time to tackle that <code class="notranslate">TODO</code>!   Allow us to offer some hints.</p>
+
+<ul>
+<li>  If <code class="notranslate">$_POST["username"]</code> or <code class="notranslate">$_POST["password"]</code> is empty or if <code class="notranslate">$_POST["password"]</code> does not equal <code class="notranslate">$_POST["confirmation"]</code>, you'll want to inform registrants of their error. </li>
+<li>  To insert a new user into your database, you might want to call
+<code class="notranslate">
+query("INSERT INTO users (username, hash, cash) VALUES(?, ?, 10000.00)", $_POST["username"], crypt($_POST["password"]));
+</code>
+though we leave it to you to decide how much cash your code should give to new users.</li>
+<li>  Know that <code class="notranslate">query</code> will return <code class="notranslate">false</code> if your <code class="notranslate">INSERT</code> fails (as can happen if, say, <code class="notranslate">username</code> already exists).  Be sure to check for false with <code class="notranslate">===</code> and not <code class="notranslate">==</code>.</li>
+<li>  If, though, your <code class="notranslate">INSERT</code> succeeds, know that you can find out which <code class="notranslate">id</code> was assigned to that user with code like the below.
+<code class="notranslate">php
+$rows = query("SELECT LAST_INSERT_ID() AS id");
+$id = $rows[0]["id"];
+</code></li>
+<li>  If registration succeeds, you might as well log the new user in (as by "remembering" that <code class="notranslate">id</code> in <code class="notranslate">$_SESSION</code>), thereafter redirecting to <code class="notranslate">index.php</code>.</li>
+</ul>
+
+<p>All done with the above?  Ready to test?  Head back to</p>
+
+<p><a class="notranslate" href="http://localhost/register.php" target="_blank" title="">http://localhost/register.php</a></p>
+
+<p>using Chrome <u>inside of the appliance</u> and try to register a new username.  If you reach <code class="notranslate">index.php</code>, odds are you done good!  Confirm as much by returning to phpMyAdmin, clicking once more that tab labeled <strong>Browse</strong> for the table called <code class="notranslate">users</code>.  May that you see your new user.  If not, it's time to debug!</p>
+
+<p>Be sure, incidentally, that any HTML generated by <code class="notranslate">register.php</code> is valid, as by ctrl- or right-clicking on the page in Chrome, selecting <strong>View Page Source</strong>, highlighting and copying the source code, and then pasting it into the W3C's validator at</p>
+
+<p><a href="http://validator.w3.org/#validate_by_input">http://validator.w3.org/#validate_by_input</a></p>
+
+<p>and then clicking <strong>Check</strong>.   Ultimately, the <strong>Result</strong> of checking your page for validity via the W3C's validator should be <strong>Passed</strong> or <strong>Tentatively passed</strong>, in which case you should see a friendly green banner.  Warnings are okay.  Errors (and big red banners) are not.  Note that you won't be able to "validate by URI" at <a href="http://validator.w3.org/#validate_by_uri">http://validator.w3.org/#validate_by_uri</a>, since your appliance isn't accessible on the public Internet!</p></li>
+<li><p>Do bear in mind as you proceed further that you are welcome to play with and learn from the staff's implementation of C$50 Finance, available at the URL below.</p>
+
+<p><a href="https://x.cs50.net/finance">https://x.cs50.net/finance</a></p>
+
+<p>In particular, you are welcome to register with as many (fake) usernames as you would like in order to play.  And you are welcome to view our pages' HTML and CSS (by viewing our source using your browser) so that you might learn from or improve upon our own design.  If you wish, feel free to adopt our HTML and CSS as your own.</p>
+
+<p>But do not feel that you need copy our design.  In fact, for this problem set, you may modify every one of the files we have given you to suit your own tastes as well as incorporate your own images and more.  In fact, may that your version of C$50 Finance be nicer than ours!</p></li>
+<li><p>Okay, now it's time to empower users to look up quotes for individual stocks.  Odds are you'll want to create a new controller called, say, <code class="notranslate">quote.php</code> plus two new templates, the first of which displays an HTML form via which a user can submit a stock's symbol, the second of which displays, minimally, a stock's latest price (if passed, via render, an appropriate value).</p>
+
+<p>How to look up a stock's latest price?  Well, recall that function called <code class="notranslate">lookup</code> in <code class="notranslate">functions.php</code>.  Odds are you'll want to call it with code like the below.</p>
+<div class="notranslate syntax"><pre><span class="x">$stock = lookup($_POST["symbol"]);</span>
+</pre></div>
+<p>Assuming the value of <code class="notranslate">$_POST["symbol"]</code> is a valid symbol for an actual stock, lookup will return an associative array with three keys for that stock, namely its <code class="notranslate">symbol</code>, its <code class="notranslate">name</code>, and its <code class="notranslate">price</code>.  Know that you can use PHP's <code class="notranslate">number_format</code> function (somehow!) to format price to at least two decimal places but no more than four decimal places.</p>
+
+<p>Of course, if the user submits an invalid symbol (for which lookup returns false), be sure to inform the user somehow.  Be sure, too, that any HTML generated by your templates is valid, per the W3C's validator.</p></li>
+<li><p>And now it's time to do a bit of design.  At present, your database has no way of keeping track of users' portfolios, only users themselves.  (By "portfolio," we mean a collection of stocks (i.e., shares of companies) that some user owns.)  It doesn't really make sense to add additional fields to users itself in order to keep track of the stocks owned by users (using, say, one field per company owned).  After all, how many different stocks might a user own?  Better to maintain that data in a new table altogether so that we do not impose limits on users' portfolios or waste space with potentially unused fields.</p>
+
+<p>Exactly what sort of information need we keep in this new table in order to "remember" users' portfolios?  Well, we probably want a field for users' IDs (<code class="notranslate">id</code>) so that we can cross-reference holdings with entries in <code class="notranslate">users</code>.  We probably want to keep track of stocks owned by way of their symbols since those symbols are likely shorter (and thus more efficiently stored) than stocks' actual names.  Of course, you could also assign unique numeric IDs to stocks and remember those instead of their symbols.  But then you'd have to maintain your own database of companies, built up over time based on data from, say, Yahoo.  It's probably better (and it's certainly simpler), then, to keep track of stocks simply by way of their symbols.  And we probably want to keep track of how many shares a user owns of a particular stock.  In other words, a table with three fields (<code class="notranslate">id</code>, <code class="notranslate">symbol</code>, and <code class="notranslate">shares</code>) sounds pretty good, but you're welcome to proceed with a design of your own.  Whatever your decision, head back to phpMyAdmin and create this new table, naming it however you see fit.  To create a new table, click <strong>pset7</strong> in phpMyAdmin's top-left corner, and on the screen that appears, input a name for your table and some number of columns below <strong>Create table</strong>, then click <strong>Go</strong>.  On the screen that appears next, define (in any order) each of your fields.</p>
+
+<p>If you decide to go with three fields (namely <code class="notranslate">id</code>, <code class="notranslate">symbol</code>, and <code class="notranslate">shares</code>), realize that <code class="notranslate">id</code> should not be defined as a primary key in this table, else each user could own no more than one company's stock (since his or her <code class="notranslate">id</code> could not appear in more than one row).  Realize, too, that you shouldn't let some <code class="notranslate">id</code> and some <code class="notranslate">symbol</code> to appear together in more than one row.  Better to consolidate users' holdings by updating shares whenever some user sells or buys more shares of some stock he or she already owns.  A neat way to impose this restriction while creating your table is to define a "joint primary key" by selecting an <strong>Index</strong> of <code class="notranslate">PRIMARY</code> for both <code class="notranslate">id</code> and <code class="notranslate">symbol</code>.  That way, <code class="notranslate">INSERT</code> will fail if you try to insert more than one row for some pair of id and symbol.  We leave it to you, though, to decide your fields' types.  (If you include <code class="notranslate">id</code> in this table, know that its type should match that in <code class="notranslate">users</code>.  But don't specify <code class="notranslate">AUTO_INCREMENT</code> for that field in this new table, as you only want auto-incrementation when user IDs are created for new users.  And don't call your table <code class="notranslate">tbl</code>.)  When done defining your table, click <strong>Save</strong>!</p></li>
+<li><p>Before we let users buy and sell stocks themselves, let's give some shares to President Skroob and friends at no charge.  Click, in phpMyAdmin's left-hand frame, the link to <code class="notranslate">users</code> and remind yourself of your current users' IDs.  Then click, in phpMyAdmin's left-hand frame, the link to your new table (for users' portfolios), followed by the tab labeled <strong>Insert</strong>.  Via this interface, go ahead and "buy" some shares of some stocks on behalf of your users by manually inserting rows into this table.  (You may want to return to Yahoo! Finance to look up some actual symbols.)  No need to debit their <code class="notranslate">cash</code> in <code class="notranslate">users</code>; consider these shares freebies.  </p>
+
+<p>Once you've bought your users some shares, let's see what you did.  Click the tab labeled <strong>SQL</strong> and run a query like the below, where tbl represents your new table's name.</p>
+<div class="notranslate syntax"><pre>SELECT * FROM tbl WHERE id = 7
+</pre></div>
+<p>Assuming <code class="notranslate">7</code> is President Skroob's user ID, that query should return all rows from <code class="notranslate">tbl</code> that represent the president's holdings.  If the only fields in table are, say, <code class="notranslate">id</code>, <code class="notranslate">symbol</code>, and <code class="notranslate">shares</code>, then know that the above is actually equivalent to the below.</p>
+<div class="notranslate syntax"><pre>SELECT id, symbol, shares FROM tbl WHERE id = 7
+</pre></div>
+<p>If, meanwhile, you'd like to retrieve only President Skroob's shares of Discovery Ventures, you might like to try a query like the below.</p>
+<div class="notranslate syntax"><pre>SELECT shares FROM tbl WHERE id = 7 AND symbol = 'DVN.V'
+</pre></div>
+<p>If you happened to buy President Skroob some shares of that company, the above should return one row with one column, the number of shares.  If you did not get buy any such shares, the above will return an empty result set.</p>
+
+<p>Incidentally, via this <strong>SQL</strong> tab, you could have inserted those "purchases" with <code class="notranslate">INSERT</code> statements.  But phpMyAdmin's GUI saved you the trouble.</p>
+
+<p>Alright, let's put this knowledge to use.  It's time to let users peruse their portfolios!  Overhaul <code class="notranslate">index.php</code> (a controller) and <code class="notranslate">portfolio.php</code> (a template) in such a way that they report each of the stocks in a user's portfolio, including number of shares and current price thereof, along with a user's current cash balance.  Needless to say, <code class="notranslate">index.php</code> will need to invoke <code class="notranslate">lookup</code> much like <code class="notranslate">quote.php</code> did, though perhaps multiple times.  And know that a PHP script can certainly invoke <code class="notranslate">query</code> multiple times, even though, thus far, we've seen it used in a file no more than once.  And you can certainly iterate over the array it returns in a template (assuming you pass it in via <code class="notranslate">render</code>).  For instance, if your goal is simply to display, say, President Skroob's holdings, one per row in some HTML table, you can generate rows with code like the below, where <code class="notranslate">$positions</code> is an array of associative arrays, each of which represents a position (i.e., a stock owned).  </p>
+<div class="notranslate syntax"><pre><span class="x">&lt;table&gt;</span>
+<span class="x">    </span><span class="cp">&lt;?php</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$positions</span> <span class="k">as</span> <span class="nv">$position</span><span class="p">)</span> 
+        <span class="p">{</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">"&lt;tr&gt;"</span><span class="p">);</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">"&lt;td&gt;"</span> <span class="o">.</span> <span class="nv">$position</span><span class="p">[</span><span class="s2">"symbol"</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/td&gt;"</span><span class="p">);</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">"&lt;td&gt;"</span> <span class="o">.</span> <span class="nv">$position</span><span class="p">[</span><span class="s2">"shares"</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/td&gt;"</span><span class="p">);</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">"&lt;td&gt;"</span> <span class="o">.</span> <span class="nv">$position</span><span class="p">[</span><span class="s2">"price"</span><span class="p">]</span> <span class="o">.</span> <span class="s2">"&lt;/td&gt;"</span><span class="p">);</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">"&lt;/tr&gt;"</span><span class="p">);</span>
+        <span class="p">}</span>
+
+    <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/table&gt;</span>
+</pre></div>
+<p>Alternatively, you can avoid using the concatenation operator (<code class="notranslate">.</code>) via syntax like the below:</p>
+<div class="notranslate syntax"><pre><span class="x">&lt;table&gt;</span>
+<span class="x">    </span><span class="cp">&lt;?php</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$positions</span> <span class="k">as</span> <span class="nv">$position</span><span class="p">)</span> 
+        <span class="p">{</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">"&lt;tr&gt;"</span><span class="p">);</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">"&lt;td&gt;</span><span class="si">{</span><span class="nv">$position</span><span class="p">[</span><span class="s2">"symbol"</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/td&gt;"</span><span class="p">);</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">"&lt;td&gt;</span><span class="si">{</span><span class="nv">$position</span><span class="p">[</span><span class="s2">"shares"</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/td&gt;"</span><span class="p">);</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">"&lt;td&gt;</span><span class="si">{</span><span class="nv">$position</span><span class="p">[</span><span class="s2">"price"</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/td&gt;"</span><span class="p">);</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">"&lt;/tr&gt;"</span><span class="p">);</span>
+        <span class="p">}</span>
+
+    <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/table&gt;</span>
+</pre></div>
+<p>Note that, in the above version, we've surrounded the lines of HTML with double quotes instead of single quotes so that the variables within (<code class="notranslate">$position["symbol"]</code>, <code class="notranslate">$position["shares"]</code>, and <code class="notranslate">$position["price"]</code>) are interpolated  (i.e., substituted with their values) by PHP's interpreter; variables between single quotes are not interpolated.  And we've also surrounded those same variables with curly braces so that PHP realizes they're variables; variables with simpler syntax (e.g., <code class="notranslate">$foo</code>) do not require the curly braces for interpolation.  (It's fine to use double quotes inside those curly braces, even though we've also used double quotes to surround the entire argument to <code class="notranslate">print</code>.)  Anyhow, though commonly done, generating HTML via calls to <code class="notranslate">print</code> isn't terribly elegant.  An alternative approach, though still a bit inelegant, is code more like the below.</p>
+<div class="notranslate syntax"><pre><span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$positions</span> <span class="k">as</span> <span class="nv">$position</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="x">    &lt;tr&gt;</span>
+<span class="x">        &lt;td&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$position</span><span class="p">[</span><span class="s2">"symbol"</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&lt;/td&gt;</span>
+<span class="x">        &lt;td&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$position</span><span class="p">[</span><span class="s2">"shares"</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&lt;/td&gt;</span>
+<span class="x">        &lt;td&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$position</span><span class="p">[</span><span class="s2">"price"</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="x">&lt;/td&gt;</span>
+<span class="x">    &lt;/tr&gt;</span>
+
+<span class="cp">&lt;?</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+<p>Of course, before you can even pass <code class="notranslate">$positions</code> to <code class="notranslate">portfolio.php</code>, you'll need to define it in <code class="notranslate">index.php</code>.  Allow us to suggest code like the below, which combines names and prices from <code class="notranslate">lookup</code> with shares and symbols, as might be returned as <code class="notranslate">$rows</code> from <code class="notranslate">query</code>.</p>
+<div class="notranslate syntax"><pre><span class="x">$positions = [];</span>
+<span class="x">foreach ($rows as $row)</span>
+<span class="x">{</span>
+<span class="x">    $stock = lookup($row["symbol"]);</span>
+<span class="x">    if ($stock !== false)</span>
+<span class="x">    {</span>
+<span class="x">        $positions[] = [</span>
+<span class="x">            "name" =&gt; $stock["name"],</span>
+<span class="x">            "price" =&gt; $stock["price"],</span>
+<span class="x">            "shares" =&gt; $row["shares"],</span>
+<span class="x">            "symbol" =&gt; $row["symbol"]</span>
+<span class="x">        ];</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+<p>Note that, with this code, we're deliberately create a new array of associative arrays (<code class="notranslate">$positions</code>) rather than add names and prices to an existing array of associative arrays (<code class="notranslate">$rows</code>).  In the interests of good design, it's generally best not to alter functions' return values (like <code class="notranslate">$rows</code> from <code class="notranslate">query</code>).</p>
+
+<p>Now, much like you can pass a page's title to render, so can you pass these positions, as with the below.</p>
+<div class="notranslate syntax"><pre><span class="x">render("portfolio.php", ["positions" =&gt; $positions, "title" =&gt; "Portfolio"]);</span>
+</pre></div>
+<p>Of course, you'll also need to pass a user's current cash balance from <code class="notranslate">index.php</code> to <code class="notranslate">portfolio.php</code> via <code class="notranslate">render</code> as well, but we leave it to you to figure out how.</p>
+
+<p>To be clear, in the spirit of MVC, though, do take care <u>not</u> to call <code class="notranslate">lookup</code> inside of that (or any other) template; you should only call <code class="notranslate">lookup</code> in controllers.  Even though templates (aka views) can contain PHP code, that code should only be used to print and/or iterate over data that's been passed in (as via render) from a controller.</p>
+
+<p>As for what HTML to generate, look, as before, to</p>
+
+<p><a href="https://www.cs50.net/finance/">https://www.cs50.net/finance/</a></p>
+
+<p>for inspiration or hints.  But do not feel obliged to mimic our design.  Make this website your own!  Although any HTML and PHP code that you yourself write should be pretty-printed (i.e., nicely indented), it's okay if lines exceed 80 characters in length.   HTML that you generate dynamically (as via calls to <code class="notranslate">print</code>), though, does not need to be pretty-printed.  </p>
+
+<p>As before, be sure to display stocks' prices and users' cash balances to at least two decimal places but no more than four.</p>
+
+<p>Incidentally, though we keep using President Skroob in examples, your code should work for whichever user is logged in.</p>
+
+<p>As always, be sure that the HTML generated by <code class="notranslate">index.php</code> is valid.</p></li>
+<li><p>And now it is time to implement the ability to sell with a controller called, say, <code class="notranslate">sell.php</code> and some number of templates.  We leave the design of this feature to you.  But know that you can delete rows from your table (on behalf of, say, President Skroob) with SQL like the below.</p>
+<div class="notranslate syntax"><pre>DELETE FROM tbl WHERE id = 7 AND symbol = 'DVN.V'
+</pre></div>
+<p>We leave it to you to infer exactly what that statement should do.  Of course, you could try the above out via phpMyAdmin's <strong>SQL</strong> tab.  Now what about the user's cash balance?  Odds are, your user is going to want the proceeds of all sales.  So selling a stock involves updating not only your table for users' portfolios but <code class="notranslate">users</code> as well.  We leave it to you to determine how to compute how much cash a user is owed upon sale of some stock.  But once you know that amount (say, $500), SQL like the below should take care of the deposit (for, say, President Skroob). </p>
+<div class="notranslate syntax"><pre>UPDATE users SET cash = cash + 500 WHERE id = 7
+</pre></div>
+<p>Of course, if the database or web server happens to die between this <code class="notranslate">DELETE</code> and <code class="notranslate">UPDATE</code>, President Skroob might lose out on all of that cash.  You need not worry about such cases!  It's also possible, because of multithreading and, thus, race conditions, that a clever president could trick your site into paying out more than once.  You need not worry about such cases either!  Though, if you're so very inclined, you can employ SQL transactions (with InnoDB tables).  See <a href="http://dev.mysql.com/doc/refman/5.5/en/innodb.html">http://dev.mysql.com/doc/refman/5.5/en/innodb.html</a> for reference.</p>
+
+<p>It's fine, for simplicity, to require that users sell all shares of some stock or none, rather than only a few.  Needless to say, try out your code by logging in as some user and selling some stuff.  You can always "buy" it back manually with phpMyAdmin.</p>
+
+<p>As always, be sure that your HTML is valid!</p></li>
+<li><p>Now it's time to support actual buys.  Implement the ability to buy, with a controller called, say, <code class="notranslate">buy.php</code> and some number of templates.  (As before, you need not worry about interruptions of service or race conditions.)  The interface with which you provide a user is entirely up to you, though, as before, feel free to look to</p>
+
+<p><a href="https://x.cs50.net/finance">https://x.cs50.net/finance</a></p>
+
+<p>for inspiration or hints.  Of course, you'll need to ensure that a user cannot spend more cash than he or she has on hand.  And you'll want to make sure that users can only buy whole shares of stocks, not fractions thereof.  For this latter requirement, know that a call like</p>
+<div class="notranslate syntax"><pre><span class="x">preg_match("/^\d+$/", $_POST["shares"])</span>
+</pre></div>
+<p>will return <code class="notranslate">true</code> if and only if <code class="notranslate">$_POST["shares"]</code> contains a non-negative integer, thanks to its use of a regular expression.  See <a href="http://www.php.net/preg_match">http://www.php.net/preg_match</a> for details.  Take care to apologize to the user if you must reject their input for any reason.  In other words, be sure to perform rigorous error-checking.  (We leave to you to determine what needs to be checked!)</p>
+
+<p>When it comes time to store stocks' symbols in your database table, take care to store them in uppercase (as is convention), no matter how they were inputted by users, so that you don't accidentally treat, say, <code class="notranslate">dvn.v</code> and <code class="notranslate">DVN.V</code> as different stocks.  Don't force users, though, to input symbols in uppercase.</p>
+
+<p>Incidentally, if you implemented your table for users' portfolios as we did ours (with that joint primary key), know that SQL like the below (which, unfortunately, wraps onto two lines) will insert a new row into table unless the specified pair of <code class="notranslate">id</code> and <code class="notranslate">symbol</code> already exists in some row, in which case that row's number of shares will simply be increased (say, by <code class="notranslate">10</code>).</p>
+<div class="notranslate syntax"><pre>INSERT INTO table (id, symbol, shares) VALUES(7, 'DVN.V', 10) ON DUPLICATE KEY UPDATE shares = shares + VALUES(shares)
+</pre></div>
+<p>As always, be sure to bang on your code.  And be sure that your HTML is valid!</p></li>
+<li><p>Alright, so your users can now buy and sell stocks and even check their portfolio's value.  But they have no way of viewing their history of transactions.</p>
+
+<p>Enhance your implementations for buying and selling in such a way that you start logging transactions, recording for each:</p>
+
+<ul>
+<li>  Whether a stock was bought or sold.</li>
+<li>  The symbol bought or sold.</li>
+<li>  The number of shares bought or sold.</li>
+<li>  The price of a share at the time of transaction.</li>
+<li>  The date and time of the transaction.</li>
+</ul>
+
+<p>Then, by way of a controller called, say, <code class="notranslate">history.php</code> and some number of templates, enable users to peruse their own history of transactions, formatted as you see fit.  Be sure that your HTML is valid!</p></li>
+<li><p>Phew.  Glance back at <code class="notranslate">index.php</code> now and, if not there already, make that it somehow links to, at least, <code class="notranslate">buy.php</code>, <code class="notranslate">history.php</code>, <code class="notranslate">logout.php</code>, <code class="notranslate">quote.php</code>, and <code class="notranslate">sell.php</code> (or their equivalents) so that each is only one click away from a user's portfolio!</p></li>
+<li><p>And now the icing on the cake.  Only one feature to go, but you get to choose.  Implement at least one (1) of the features below.  You may interpret each of the below as you see fit; we leave all design decisions to you.  Be sure that your HTML is valid.</p>
+
+<ul>
+<li>  Empower users (who're already logged in) to change their passwords.</li>
+<li>  Empower users who've forgotten their password to reset it (as by having them register with an email address so that you can email them a link via which to do so).</li>
+<li>  Email users "receipts" anytime they buy or sell stocks.</li>
+<li>  Empower users to deposit additional funds.</li>
+</ul>
+
+<p>For tips on how to send email programmatically, see:</p>
+
+<p><a href="https://manual.cs50.net/Sending_Mail">https://manual.cs50.net/Sending_Mail</a></p></li>
+</ul>
+
+<h2 id="toc_294">Sanity Checks.</h2>
+
+<p>Before you consider this problem set done, best to ask yourself these questions and then go back and improve your code as needed!  Do not consider the below an exhaustive list of expectations, though, just some helpful reminders.  The checkboxes that have come before these represent the exhaustive list!  To be clear, consider the questions below rhetorical.  No need to answer them in writing for us, since all of your answers should be "yes!"</p>
+
+<ul>
+<li>  Is the HTML generated by all of your PHP files valid according to <a href="http://validator.w3.org/">http://validator.w3.org/</a>?</li>
+<li>  Do your pages detect and handle invalid inputs properly?</li>
+<li>  Are you recording users' histories of transactions properly?</li>
+<li>  Did you add one (1) additional feature of your own?</li>
+<li>  Did you choose appropriate data types for your database tables' fields?</li>
+<li>  Are you displaying any dollar amounts to at least two decimal places but no more than four?</li>
+<li>  Are you storing stocks' symbols in your table(s) in uppercase?</li>
+</ul>
+
+<p>As always, if you can't answer "yes" to one or more of the above because you're having some trouble, do turn to <a class="notranslate" href="https://x.cs50.net/discuss" target="_blank" title="">CS50 Discuss</a>!</p>
+
+<h2 id="toc_295">How to Submit.</h2>
+
+<p>In order to submit this problem set, you must first execute a command in the appliance and then submit a (brief) form online. </p>
+
+<ul>
+<li><p>Open a terminal window via <strong>Menu &gt; Programming &gt; Terminal</strong> (<u>not</u> within <code class="notranslate">gedit</code>) and execute:</p>
+<div class="notranslate syntax"><pre>update50
+</pre></div>
+<p>to ensure you have the latest release of the appliance.  Then execute:</p>
+<div class="notranslate syntax"><pre>cd ~/vhosts/localhost
+</pre></div>
+<p>Then execute:</p>
+<div class="notranslate syntax"><pre>ls
+</pre></div>
+<p>At a minimum, you should see <code class="notranslate">html</code>, <code class="notranslate">includes</code>, and <code class="notranslate">templates</code>.  If not, odds are you skipped some step(s) earlier!  Next execute</p>
+<div class="notranslate syntax"><pre>mysqldump -u jharvard -p pset7 &gt; pset7.sql
+</pre></div>
+<p>in order to "dump" your MySQL database to a file called <code class="notranslate">pset7.sql</code> (so that we can re-create it on our end).  Input a password of <strong>crimson</strong> if prompted, then confirm that <code class="notranslate">pset7.sql</code> exists with <code class="notranslate">ls</code>.</p>
+
+<p>Then execute</p>
+<div class="notranslate syntax"><pre>submit50 ~/vhosts/localhost
+</pre></div>
+<p>and follow the on-screen instructions.  </p>
+
+<p>As always, that command will essentially upload your entire <code class="notranslate">~/vhosts/localhost</code> directory to CS50's servers, where it will be graded officially.  The command will inform you whether your submission was successful or not.  And you may inspect your submission at <a class="notranslate" href="https://x.cs50.net/submit" target="_blank" title="">CS50 Submit</a>.</p>
+
+<p>You may re-submit as many times as you'd like; we'll re-grade your most recent submission.  </p>
+
+<p>If you run into any trouble at all, let us know via <a class="notranslate" href="https://x.cs50.net/discuss" target="_blank" title="">CS50 Discuss</a>, and we'll try to assist!</p></li>
+<li><p>Head to the URL below where a short form awaits:</p>
+
+<p><a href="https://x.cs50.net/2012/psets/7/form">https://x.cs50.net/2012/psets/7/form</a></p>
+
+<p>Once you have submitted that form (as well as your source code), you are done!</p>
+
+<p><strong>If you decide to re-submit your code with <code class="notranslate">submit50</code>, you do not need to re-submit the form.</strong></p>
+
+<p>This was Problem Set 7, your last!</p></li>
+</ul>
+
+      </div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./This is CS50x._files/translate-32.png" width="20" height="20"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+    
+
+</body></html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://x.cs50.net/2012/psets/6/pset6.html -->
+<html style="height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <!-- https://gist.github.com/2554919 -->
+        <link href="https://x.cs50.net/github.css" rel="stylesheet">
+
+        <!-- http://pygments.org/media/pygments_style.css -->
+        <link href="https://x.cs50.net/pygments.css" rel="stylesheet">
+
+        <link href="https://x.cs50.net/styles.css" rel="stylesheet">
+
+        <meta name="google-translate-customization" content="83dad8c46b6d7de3-b92d8f963efb3caa-g23dd9b261bcb76f6-d">
+
+        <script src="./pset6_files/jquery.min.js"></script>
+        <script src="./pset6_files/cs50.analytics.js"></script>
+        <script src="./pset6_files/scripts.js"></script>
+
+        <title>This is CS50x.</title>
+
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="./pset6_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./pset6_files/main.js"></script><script type="text/javascript" charset="UTF-8" src="./pset6_files/element_main.js"></script></head><style type="text/css"></style>
+    <body style="position: relative; min-height: 100%; top: 0px;">
+
+      <h1>This is CS50x.</h1>
+
+      <div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" style="display: inline;"><select class="goog-te-combo"><option value="">Select Language</option><option value="af">Afrikaans</option><option value="sq">Albanian</option><option value="ar">Arabic</option><option value="hy">Armenian</option><option value="az">Azerbaijani</option><option value="eu">Basque</option><option value="be">Belarusian</option><option value="bn">Bengali</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option><option value="zh-CN">Chinese (Simplified)</option><option value="zh-TW">Chinese (Traditional)</option><option value="hr">Croatian</option><option value="cs">Czech</option><option value="da">Danish</option><option value="nl">Dutch</option><option value="eo">Esperanto</option><option value="et">Estonian</option><option value="tl">Filipino</option><option value="fi">Finnish</option><option value="fr">French</option><option value="gl">Galician</option><option value="ka">Georgian</option><option value="de">German</option><option value="el">Greek</option><option value="gu">Gujarati</option><option value="ht">Haitian Creole</option><option value="iw">Hebrew</option><option value="hi">Hindi</option><option value="hu">Hungarian</option><option value="is">Icelandic</option><option value="id">Indonesian</option><option value="ga">Irish</option><option value="it">Italian</option><option value="ja">Japanese</option><option value="kn">Kannada</option><option value="ko">Korean</option><option value="lo">Lao</option><option value="la">Latin</option><option value="lv">Latvian</option><option value="lt">Lithuanian</option><option value="mk">Macedonian</option><option value="ms">Malay</option><option value="mt">Maltese</option><option value="no">Norwegian</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ro">Romanian</option><option value="ru">Russian</option><option value="sr">Serbian</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option value="es">Spanish</option><option value="sw">Swahili</option><option value="sv">Swedish</option><option value="ta">Tamil</option><option value="te">Telugu</option><option value="th">Thai</option><option value="tr">Turkish</option><option value="uk">Ukrainian</option><option value="ur">Urdu</option><option value="vi">Vietnamese</option><option value="cy">Welsh</option><option value="yi">Yiddish</option></select></div>&nbsp;&nbsp;Powered by <span style="white-space:nowrap"><a class="goog-logo-link" href="http://translate.google.com/" target="_blank"><img src="./pset6_files/google_logo_41.png" width="37px" height="13px" style="padding-right: 3px">Translate</a></span></div></div><script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, autoDisplay: false, gaTrack: true, gaId: 'UA-8162502-35'}, 'google_translate_element');
+        }
+        </script><script type="text/javascript" src="./pset6_files/element.js"></script>
+       
+      <div>
+        <h1 id="toc_281">Problem Set 6: Huff'n Puff</h1>
+
+<h2 id="toc_282">Objectives.</h2>
+
+<ul>
+<li>  Huff and puff and blow your house in.</li>
+<li>  Build and traverse binary trees.</li>
+<li>  Compress and decompress actual files.</li>
+</ul>
+
+<h1 id="toc_283">A Section of Questions.</h1>
+
+<p>You're welcome to dive into these questions on your own, but know that they'll also be explored in section! Instead of using CS50 Run or CS50 Spaces for these questions, you'll need to use the CS50 Appliance.</p>
+
+<ul>
+<li><p>Remember that a binary tree has nodes similar to those of a linked list, except instead of one pointer there are two: one for the left "child" and one for the right "child."  Draw a boxes-and-arrows diagram of a binary tree node containing (Nate's favorite number!) 7, where each child pointer is <code class="notranslate">NULL</code>.</p></li>
+<li><p>With a linked list, we only had to store a pointer to the first node in the list in order to remember the whole list.  Likewise, with trees, we only have to store a pointer to a single node in order to remember the whole tree. This node is called the "root" of the tree.</p>
+
+<p>Build upon your diagram from before (or draw a new one) such that you have a boxes-and-arrows depiction of a binary tree with the value 7 inside of the root node, 3 inside of the left child node, and 9 inside of the right child node. Now, make an additional node containing 6, and set the right child pointer of the node containing 3 point to it.</p></li>
+<li><p>Let's go over some terminology. We already talked about how the "root" of the tree is the top-most node in the tree, the one containing 7 in the diagram you just drew. With a pointer to the root, you can hold on to the entire tree.</p>
+
+<p>The nodes at the bottom of the tree are called the "leaves." In precise terms, these are the nodes for which both child pointers are <code class="notranslate">NULL</code>. In the diagram described above, the nodes containing 6 and 9 are leaves.</p>
+
+<p>The "height" of a tree is the number of hops you have to make to get from the root to the most distant leaf.  If the tree only has one node, the root, then we say that its height is 0.  The tree you just drew has a height of 2, since you have to make two hops to get from the root to the node containing 6.</p>
+
+<p>We can also talk about nodes in a tree in terms relative to the other nodes in the tree.  For this, we use terminology taken from family trees: parents, children, siblings, ancestors, and descendants.  Using your best instincts, answer the following questions using the diagram you just drew! Identify each node by the value it's holding.</p>
+
+<ul>
+<li>  Which node is the parent of 3?</li>
+<li>  How many siblings does 9 have?  Name them.</li>
+<li>  How many ancestors does 6 have?  Name them.</li>
+<li>  How many descendants does 7 have?  Name them.</li>
+<li>  How many children does 3 have?  Name them.</li>
+</ul></li>
+<li><p>We say that a binary tree is "ordered" if for each node in the tree, all of its descendants on the left (i.e., the left child and of its children) have lesser values and all of its descendants on the right have greater values (we'll assume that there aren't any duplicate values in our tree).  For example, the tree above is ordered, but it's not the only possible ordered arrangement!  Try to draw as many ordered trees as you can think of using the numbers 7, 3, 9, and 6.  How many distinct arrangements are there?  What is the height of each one?</p></li>
+<li><p>Ordered binary trees are cool because we can search through them in a very similar way to searching over a sorted array!  To do so, we start at the root and work our way down the tree, towards the leaves, checking each node's value against the value we're searching for.  If the current node's value is less than the value you're looking for, you go next to the node's right child.  Otherwise, you go to the node's left child.  At some point, you'll either find the value you're looking for or you'll run into a <code class="notranslate">NULL</code>, indicating that the value's not in the tree.</p>
+
+<p>Using the initial tree you drew above (with 7 at the root and 3 and 9 as its children, plus 6 as a child of 3), perform the following lookups.  Indicate which nodes you check, in order.</p>
+
+<ul>
+<li>  6</li>
+<li>  10</li>
+<li>  1</li>
+</ul></li>
+<li><p>Ok, let's play with binary trees in C!  Open up the CS50 Appliance, navigate your way to</p>
+<div class="notranslate syntax"><pre>~/Dropbox
+</pre></div>
+<p>and create a new folder for your code as follows.</p>
+<div class="notranslate syntax"><pre>mkdir section7
+</pre></div>
+<p>Now, create a file called <code class="notranslate">binary_tree.c</code> with your favorite editor.</p></li>
+<li><p>First, we'll need a new type definition for a binary tree node containing <code class="notranslate">int</code> values. Using the boilerplate <code class="notranslate">typedef</code> below, create a new type definition for a node in a binary tree.  If you get stuck, refer to the singly-linked list node definition from Problem Set 5's Section of Questions!</p>
+<div class="notranslate syntax"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">node</span>
+<span class="p">{</span>
+    <span class="c1">// TODO</span>
+<span class="p">}</span>
+<span class="n">node</span><span class="p">;</span>
+</pre></div></li>
+<li><p>Now declare a global <code class="notranslate">node*</code> variable for the root of a tree.  In <code class="notranslate">main</code>, initialize the root and put the value 7 in it.</p></li>
+<li><p>Create three more nodes: one containing 3, one with 6, and one with 9.  Wire them up so that you've got the same tree structure as the one you drew above, where 7 is at the root, 3 is in the root's left child, 9 is in the root's right child, and 6 is 3's right child.</p></li>
+<li><p>Now write a function called contains with a prototype of</p>
+<div class="notranslate syntax"><pre><span class="n">bool</span> <span class="n">contains</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
+</pre></div>
+<p>that returns <code class="notranslate">true</code> if the tree pointed to by the global variable <code class="notranslate">root</code> contains value and <code class="notranslate">false</code> otherwise.  Add some sample function calls to <code class="notranslate">main</code> along with some calls to <code class="notranslate">printf</code> to make sure your function behaves as you expect!</p></li>
+<li><p>Add some more nodes to your tree: try adding 5, 2, and 8.  Make sure your contains code still works as expected!</p></li>
+<li><p>So adding nodes manually like this is a bit of a pain, eh?  Fortunately, now that you've written contains, insert isn't too much harder! Implement a function with prototype</p>
+<div class="notranslate syntax"><pre><span class="n">bool</span> <span class="n">insert</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
+</pre></div>
+<p>that inserts a node containing <code class="notranslate">value</code> into the tree pointed to by the global <code class="notranslate">root</code> variable.  Return <code class="notranslate">true</code> if successful, and return <code class="notranslate">false</code> if you failed for some reason (e.g., lack of sufficient heap memory, value already in the tree, etc.). Try inserting 1, 4, 9, and 2 (again!) to the tree to make sure the code works as expected!</p></li>
+</ul>
+
+<h2 id="toc_284">Getting Started.</h2>
+
+<ul>
+<li><p>Start up your appliance and, upon reaching John Harvard’s desktop, open a terminal window (remember how?) and execute</p>
+<div class="notranslate syntax"><pre>update50
+</pre></div>
+<p>to ensure that your appliance is up-to-date!</p></li>
+<li><p>Like <a class="notranslate" href="https://x.cs50.net/2012/psets/pset5.html" target="_blank" title="">Problem Set 5</a>, this problem set comes with some distribution code that you'll need to download before getting started.  Go ahead and execute</p>
+<div class="notranslate syntax"><pre>cd ~/Dropbox
+</pre></div>
+<p>in order to navigate to your <code class="notranslate">~/Dropbox</code> directory.  Then execute</p>
+<div class="notranslate syntax"><pre>wget http://cdn.cs50.net/2012/fall/psets/6/pset6.zip
+</pre></div>
+<p>in order to download a ZIP (i.e., compressed version) of this problem set's distro.  If you then execute</p>
+<div class="notranslate syntax"><pre>ls
+</pre></div>
+<p>you should see that you now have a file called <code class="notranslate">pset6.zip</code> in your <code class="notranslate">~/Dropbox</code> directory.  Unzip it by executing the below.</p>
+<div class="notranslate syntax"><pre>unzip pset6.zip
+</pre></div>
+<p>If you again execute</p>
+<div class="notranslate syntax"><pre>ls
+</pre></div>
+<p>you should see that you now also have a <code class="notranslate">pset6</code> directory.  You're now welcome to delete the ZIP file with the below.</p>
+<div class="notranslate syntax"><pre>rm -f pset6.zip
+</pre></div>
+<p>Now dive into that <code class="notranslate">pset6</code> directory by executing the below.</p>
+<div class="notranslate syntax"><pre>cd pset6
+</pre></div>
+<p>Now execute</p>
+<div class="notranslate syntax"><pre>ls
+</pre></div>
+<p>and you should see that the directory contains the below.</p>
+<div class="notranslate syntax"><pre>Makefile  forest.c  hth.txt    huffile.h  tree.c
+dump.c  forest.h  huffile.c  tale.txt   tree.h
+</pre></div></li>
+</ul>
+
+<h2 id="toc_285">The Story of the Three Little Pigs.<a class="notranslate" href="http://books.google.com/books?id=_-EOAAAAQAAJ&printsec=titlepage" target="_blank" title="">*</a></h2>
+
+<ul>
+<li><p>Once upon a time when pigs spoke rhyme<br>
+And monkeys chewed tobacco,<br>
+And hens took snuff to make them tough,<br>
+And ducks went quack, quack, quack, O!</p></li>
+<li><p>There was an old sow with three little pigs, and as she had not enough to keep them, she sent them out to seek their fortune.  The first that went off met a man with a bundle of straw, and said to him:</p>
+
+<p>"Please, man, give me that straw to build me a house."</p>
+
+<p>Which the man did, and the little pig built a house with it.  Presently came along a wolf, and knocked at the door, and said:</p>
+
+<p>"Little pig, little pig, let me come in."</p>
+
+<p>To which the pig answered:</p>
+
+<p>"No, no, by the hair of my chiny chin chin."</p>
+
+<p>The wolf then answered to that:</p>
+
+<p>"Then I'll huff, and I'll puff, and I'll blow your house in."</p>
+
+<p>So he huffed, and he puffed, and he blew his house in, and ate up the little pig.</p>
+
+<p>The second little pig met a man with a bundle of furze, and said:</p>
+
+<p>"Please, man, give me that furze to build a house."</p>
+
+<p>Which the man did, and the pig built his house.  Then along came the wolf, and said:</p>
+
+<p>"Little pig, little pig, let me come in."</p>
+
+<p>"No, no, by the hair of my chiny chin chin."</p>
+
+<p>"Then I'll puff, and I'll huff, and I'll blow your house in."</p>
+
+<p>So he huffed, and he puffed, and he puffed, and he huffed, and at last he blew the house down, and he ate up the little pig.</p>
+
+<p>The third little pig met a man with a load of bricks, and said:</p>
+
+<p>"Please, man, give me those bricks to build a house with."</p>
+
+<p>So the man gave him the bricks, and he built his house with them.  So the wolf came, as he did to the other little pigs, and said:</p>
+
+<p>"Little pig, little pig, let me come in."</p>
+
+<p>"No, no, by the hair of my chiny chin chin."</p>
+
+<p>"Then I'll huff, and I'll puff, and I'll blow your house in."</p>
+
+<p>Well, he huffed, and he puffed, and he huffed and he puffed, and he puffed and huffed; but he could not get the house down.  When he found that he could not, with all his huffing and puffing, blow the house down, he said:</p>
+
+<p>"Little pig, I know where there is a nice field of turnips."</p>
+
+<p>"Where?" said the little pig.</p>
+
+<p>"Oh, in Mr.  Smith's Home-field, and if you will be ready tomorrow morning I will call for you, and we will go together, and get some for dinner."</p>
+
+<p>"Very well," said the little pig, "I will be ready.  What time do you mean to go?"</p>
+
+<p>"Oh, at six o'clock."</p>
+
+<p>Well, the little pig got up at five, and got the turnips before the wolf came (which he did about six) and who said:</p>
+
+<p>"Little Pig, are you ready?"</p>
+
+<p>The little pig said: "Ready! I have been and come back again, and got a nice potful for dinner."</p>
+
+<p>The wolf felt very angry at this, but thought that he would be up to the little pig somehow or other, so he said:</p>
+
+<p>"Little pig, I know where there is a nice apple-tree."</p>
+
+<p>"Where?" said the pig.</p>
+
+<p>"Down at Merry-garden," replied the wolf, "and if you will not deceive me I will come for you, at five o'clock tomorrow and get some apples."</p>
+
+<p>Well, the little pig bustled up the next morning at four o'clock, and went off for the apples, hoping to get back before the wolf came; but he had further to go, and had to climb the tree, so that just as he was coming down from it, he saw the wolf coming, which, as you may suppose, frightened him very much.  When the wolf came up he said:</p>
+
+<p>"Little pig, what! are you here before me? Are they nice apples?"</p>
+
+<p>"Yes, very," said the little pig.  "I will throw you down one."</p>
+
+<p>And he threw it so far, that, while the wolf was gone to pick it up, the little pig jumped down and ran home.  The next day the wolf came again, and said to the little pig:</p>
+
+<p>"Little pig, there is a fair at Shanklin this afternoon, will you go?"</p>
+
+<p>"Oh yes," said the pig, "I will go; what time shall you be ready?"</p>
+
+<p>"At three," said the wolf.  So the little pig went off before the time as usual, and got to the fair, and bought a butter-churn, which he was going home with, when he saw the wolf coming.  Then he could not tell what to do.  So he got into the churn to hide, and by so doing turned it round, and it rolled down the hill with the pig in it, which frightened the wolf so much, that he ran home without going to the fair.  He went to the little pig's house, and told him how frightened he had been by a great round thing which came down the hill past him.   Then the little pig said:</p>
+
+<p>"Hah, I frightened you, then.  I had been to the fair and bought a butter-churn, and when I saw you, I got into it, and rolled down the hill."</p>
+
+<p>Then the wolf was very angry indeed, and declared he would eat up the little pig, and that he would get down the chimney after him.  When the little pig saw what he was about, he hung on the pot full of water, and made up a blazing fire, and, just as the wolf was coming down, took off the cover, and in fell the wolf; so the little pig put on the cover again in an instant, boiled him up, and ate him for supper, and lived happy ever afterwards.</p></li>
+<li><p>Okay, enough fairy tales.  Time to get to work.</p></li>
+<li><p>The challenge ahead is to implement a program called <code class="notranslate">puff</code> that puffs (i.e., decompresses) files that have been huffed (i.e., Huffman-compressed) with a program that we wrote called <code class="notranslate">huff</code>.  Let's begin with a story of our own.</p></li>
+<li><p>Once upon a time, there were four little pigs who lived in a four-byte ASCII file.  The first little piggy was an <code class="notranslate">H</code>.  The second little piggy was a <code class="notranslate">T</code>.  The third little piggy was an <code class="notranslate">H</code>.  And the fourth little piggy was a newline.</p>
+
+<p>Presently came along David A. Huffman, and made a tree out of the piggies' frequencies, per the figure below.</p>
+
+<p><img src="./pset6_files/hth.png" alt="Huffman tree"></p>
+
+<p>In a file called <code class="notranslate">tale.txt</code>, finish this tale if (and only if) feeling creative.</p></li>
+<li><p>When represented in ASCII, each of those piggies takes up 8 bits on disk.  But, thanks to Huffman, we can generally do better.  After all, how many bits does it really take to represent any of three different characters?  Just two, of course, as two bits allows us as many as 2<sup>2</sup> = 4 codes.  And so could we represent, per the figure above, a newline with <code class="notranslate">00</code>, <code class="notranslate">T</code> with <code class="notranslate">01</code>, and <code class="notranslate">H</code> with <code class="notranslate">1</code>.  Notice how, even in this tiny example, the least frequent of characters receive, by design, the longest of codes.</p>
+
+<p>The catch, of course, is that you must be able to reconstruct this tree (or, more generally, recover these codes) if you wish to puff back to ASCII piggies that have been huffed.  Perhaps the simplest way to enable a program like <code class="notranslate">puff</code> to decompress files that have huffed is to have <code class="notranslate">huff</code> include in those files piggies' original frequencies.  With those frequencies can <code class="notranslate">puff</code> then re-build the same tree that <code class="notranslate">huff</code> built.  Of course, inclusion of this metadata does cost us some space.  But, for large inputs, that cost is more than subsumed by savings in bits.</p>
+
+<p>We chose, for <code class="notranslate">huff</code>, to include these frequencies and more.  Let's get you started on <code class="notranslate">puff</code>.</p></li>
+<li><p>Open up <code class="notranslate">huffile.h</code> and spend some time looking over the code and comments therein.  This file defines a "layer of abstraction" for you in order to facilitate your implementation of <code class="notranslate">puff</code> (and our implementation of <code class="notranslate">huff</code>).  More technically, it defines an API (application programming interface) with which you can read (or write) Huffman-compressed files.</p>
+
+<p>Ultimately, this problem set is as much about learning how to interface with someone else's code (e.g., ours) as it is about building and traversing binary trees.  After all, after CS50, you won't always have someone to walk you through code.  But what once looked like Greek should at least now look like C to you!  (Unless you actually speak Greek.)</p>
+
+<p>But we won't let go of that hand just yet.  Notice that, in <code class="notranslate">huffile.h</code>, we have defined the following <code class="notranslate">struct</code> to wrap all our metadata.</p>
+<div class="notranslate syntax"><pre><span class="k">typedef</span> <span class="k">struct</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">magic</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">frequencies</span><span class="p">[</span><span class="n">SYMBOLS</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">checksum</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">Huffeader</span><span class="p">;</span>
+</pre></div>
+<p>As its own name suggests (say it three times fast), this <code class="notranslate">struct</code> defines a header for a Huffman-compressed file (much like <code class="notranslate">BITMAPFILEHEADER</code> defined a header for BMPs).  Before writing out bits (i.e., codes), our implementation of <code class="notranslate">huff</code> first writes out this header, so that your version of <code class="notranslate">puff</code> can read in the same and reconstruct the tree we used for huffing.</p>
+
+<p>Besides symbols' frequencies, notice that this header includes some magic!  Much like JPEGs begin with <code class="notranslate">0xffd8</code>, so have we decided (arbitrarily) that <code class="notranslate">huff</code>-compressed files must begin with <code class="notranslate">0x46465548</code>.  (We say "arbitrarily," but 0x46465548 actually has meaning.  What does it spell?)  A "magic number," then, is a form of signature.  We have also decided that huffed files' headers must end with a "checksum," a summation of all frequencies therein.</p>
+
+<p>In other words, if, upon reading some file's first several bytes into a <code class="notranslate">Huffeader</code>, <code class="notranslate">magic</code> is not <code class="notranslate">0x46465548</code> or <code class="notranslate">checksum</code> does not equal the sum of all values in <code class="notranslate">frequencies</code>, then that file was most certainly not huffed!  (Of course, some non-huffed file's first several bytes might happen to satisfy these conditions as well, in which case it could be mistaken for a huffed file.  Probabilistically, that's not too likely to happen.  But it's because of that chance that some operating systems (also) rely on files' extensions (e.g., <code class="notranslate">.bmp</code>) to distinguish files' types.)</p></li>
+<li><p>Take a look now at <code class="notranslate">hth.txt</code>, but take care not to make any changes.  In that file are those four little piggies (even though <code class="notranslate">gedit</code> might not show you the newline).  Let's blow their house down and compress them with our implementation of <code class="notranslate">huff</code>.  Run the below to save a compressed version of <code class="notranslate">hth.txt</code> in a new file called <code class="notranslate">hth.bin</code>.</p>
+<div class="notranslate syntax"><pre>~cs50/pset6/huff  hth.txt  hth.bin
+</pre></div>
+<p>Let's take a look at the huffed file's size.  Run the below.</p>
+<div class="notranslate syntax"><pre>ls -l hth.txt hth.bin
+</pre></div>
+<p>Ack!  Per that command's output, it seems that we have "compressed" 4 bytes to 1034!  Such is the cost of that metadata for particularly small files.  For larger inputs, though, it won't be so bad.</p>
+
+<p>Incidentally, <code class="notranslate">hth.txt</code> is a considered an ASCII (or text) file because it contains ASCII codes, and <code class="notranslate">hth.bin</code> is a binary file because it does not.  That we've chosen extensions of <code class="notranslate">.txt</code> for the former and .bin is just for convenience and not by requirement.</p>
+
+<p>Let's take a look at the contents of hth.bin in hex with an old friend.  Run the below.</p>
+<div class="notranslate syntax"><pre>xxd -g 4 hth.bin
+</pre></div>
+<p>Scroll back on up to the start of <code class="notranslate">xxd</code>'s output.  Take a look at this huffed file's first four bytes!  Wait a minute, talk about magic, those bytes are reversed!  (And, yes, they do spell <code class="notranslate">HUFF</code> if you insist on interpreting those bytes as ASCII, as <code class="notranslate">xxd</code> does in its rightmost column.  So clever we are.)  Recall that a huffed file's first four bytes were supposed to be <code class="notranslate">0x46465548</code>, not the reverse.  So what's going on?</p>
+
+<p>It turns out that the CS50 Appliance is "little endian," whereby multi-byte primitives (like <code class="notranslate">int</code>) are stored with their little end (i.e., least-significant byte) first.  Generally speaking, you need not worry about endianness when programming, unless you start manipulating binary files (or network connections).  We mention it now so that you understand <code class="notranslate">xxd</code>'s output!</p>
+
+<p>Notice, by the way, how many <code class="notranslate">0</code>s are in <code class="notranslate">hth.bin</code>.  Of course, <code class="notranslate">hth.txt</code> only had three unique piggies, so most of those <code class="notranslate">0</code>s represent the frequencies of ASCII's other (absent) 253 characters.  But, if you look closely, scattered among all those <code class="notranslate">0</code>s are <code class="notranslate">01000000</code>, <code class="notranslate">02000000</code>, and <code class="notranslate">01000000</code>, which are, of course, little-endian representations of 1, 2, and 1 (in decimal), the frequencies of newlines, <code class="notranslate">H</code>, and <code class="notranslate">T</code>, respectively, in <code class="notranslate">hth.txt</code>!  Lower in <code class="notranslate">xxd</code>'s output you'll find <code class="notranslate">04000000</code>, the sum (i.e., checksum) of those counts.  The second-to-last byte in <code class="notranslate">hth.bin</code> appears to be b0 and the very last <code class="notranslate">06</code>.  Hm, back to those in a bit.</p></li>
+<li><p>Next take a look now at <code class="notranslate">dump.c</code>.  That file implements a program with which you can dump <code class="notranslate">huff</code>-compressed files in human-readable form.  Look over its comments and code to learn how it works.</p>
+
+<p>Next take a look at <code class="notranslate">Makefile</code>, in which we've defined a target for <code class="notranslate">dump</code> but not one for <code class="notranslate">puff</code>.  (We'll leave that to you.)  Notice how <code class="notranslate">dump</code> depends not only on <code class="notranslate">dump.c</code> but also on other <code class="notranslate">.c</code> and <code class="notranslate">.h</code> files as well.  That <code class="notranslate">dump.c</code> itself appears relatively simple is because we have abstracted away important, but potentially distracting, details with APIs.</p>
+
+<p>Go ahead and build dump with Make.  (Remember how?)  Then run it as follows.</p>
+<div class="notranslate syntax"><pre>./dump hth.bin
+</pre></div>
+<p>You should see output like the below.</p></li>
+</ul>
+<div class="notranslate syntax"><pre>! 0       - 0       9 0       E 0       Q 0       ] 0       i 0       u 0       
+" 0       . 0       : 0       F 0       R 0       ^ 0       j 0       v 0       
+# 0       / 0       ; 0       G 0       S 0       _ 0       k 0       w 0       
+$ 0       0 0       &lt; 0       H 2       T 1       ` 0       l 0       x 0       
+% 0       1 0       = 0       I 0       U 0       a 0       m 0       y 0       
+&amp; 0       2 0       &gt; 0       J 0       V 0       b 0       n 0       z 0       
+' 0       3 0       ? 0       K 0       W 0       c 0       o 0       { 0       
+( 0       4 0       @ 0       L 0       X 0       d 0       p 0       | 0       
+) 0       5 0       A 0       M 0       Y 0       e 0       q 0       } 0       
+* 0       6 0       B 0       N 0       Z 0       f 0       r 0       ~ 0       
++ 0       7 0       C 0       O 0       [ 0       g 0       s 0       
+, 0       8 0       D 0       P 0       \ 0       h 0       t 0       
+
+101100
+</pre></div>
+<p>Atop <code class="notranslate">dump</code>'s output is a table of frequencies, not for all ASCII characters but for those that display nicely in terminal windows.  Notice that the frequencies of <code class="notranslate">H</code> and <code class="notranslate">T</code> are as expected.  (Newlines are simply not among the characters shown.)</p>
+
+<p>Below that table, meanwhile, is a sequence of six bits, the compressed version of <code class="notranslate">hth.txt</code>!  Recall, after all, that our tree told us to represent newline with <code class="notranslate">00</code>, <code class="notranslate">T</code> with <code class="notranslate">01</code>, and <code class="notranslate">H</code> with <code class="notranslate">1</code>.  And, so, the above indeed represents our original text!</p>
+
+<p>Let's take one more look at this file with xxd, this time in binary.  Try the below.</p>
+<div class="notranslate syntax"><pre>xxd -b hth.bin
+</pre></div>
+<p>Take a close look at <code class="notranslate">hth.bin</code>'s final two bytes: <code class="notranslate">10110000</code> and <code class="notranslate">00000110</code>.  (You may recall these bytes as <code class="notranslate">b0</code> and <code class="notranslate">06</code> in hex.)  Notice how the former is but <code class="notranslate">101100</code> padded with two trailing <code class="notranslate">0</code>s.  Why those two <code class="notranslate">0</code>s?  Well, you can write individual bytes to disk but not individual bits.  Ergo, even though our implementation of <code class="notranslate">huff</code> only called <code class="notranslate">bwrite</code> six times in order to write out six bits, our API ultimately has to write out eight bits.  To avoid confusion when it's time to read those bits back in, our API employs a trick.  We keep track, in a huffed file's very last byte, of just how many bits in the file's second-to-last byte are valid so that bread can avoid returning trailing padding, lest you, in writing <code class="notranslate">puff</code>, mistake extra <code class="notranslate">0</code>s for encoded symbols!</p>
+
+<p>If curious, take a look at <code class="notranslate">huffile.c</code>.  As is the case with most APIs, you don't need to understand how our API works underneath the hood.  After all, you've probably never seen <code class="notranslate">stdio.c</code>, but that hasn't stopped you from using <code class="notranslate">printf</code>!  But you should absolutely understand what you can do with our API.  For that knowledge, you can rely on <code class="notranslate">huffile.h</code> alone.</p>
+
+<ul>
+<li><p>A final stroll through some code, if we may.  Recall that, to implement Huffman's algorithm, you can begin with a "forest" of single-node trees, each of which represents a symbol and its frequency within some body of text.  Iteratively can you then pick from that forest the two trees with lowest frequencies, join them as siblings with a new parent whose own frequency is the sum of its children's, and plant that new parent in the forest.  In time will this forest converge to a lone tree whose branches represent symbols' codes.</p>
+
+<p>Also recall that the manner in which ties between roots with equal frequencies are broken is important to standardize, lest <code class="notranslate">huff</code> and <code class="notranslate">puff</code> build different trees.  And so we have provided you not only with an API for reading (or writing) <code class="notranslate">Huffile</code>s but also with an API for forest management.  (Speaking of forest management, did you know that Harvard owns a forest?  Procrastinate at <a href="http://harvardforest.fas.harvard.edu/">http://harvardforest.fas.harvard.edu/.</a>)  Take a look first at <code class="notranslate">tree.h</code>.  Notice that we have provided the following definition for trees' nodes.</p>
+<div class="notranslate syntax"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="n">tree</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">symbol</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">frequency</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">tree</span><span class="o">*</span> <span class="n">left</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">tree</span><span class="o">*</span> <span class="n">right</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">Tree</span><span class="p">;</span>
+</pre></div>
+<p>Rather than store symbols' frequencies as percentages (i.e., floating point values), a node, per this definition, instead stores raw counts.</p>
+
+<p>As the design of <code class="notranslate">tree.h</code> suggests, rather than ever <code class="notranslate">malloc</code> a <code class="notranslate">Tree</code> yourself, you should instead call <code class="notranslate">mktree</code>, which will not only <code class="notranslate">malloc</code> a <code class="notranslate">Tree</code> for you but also initialize its members to defaults.  Similarly should you never call <code class="notranslate">free</code> on a <code class="notranslate">Tree</code> but, instead, invoke <code class="notranslate">rmtree</code>, which will delete that <code class="notranslate">Tree</code>'s root for you plus all its descendants.   (If familiar with, say, C++, you can think of <code class="notranslate">mktree</code> as a sort of constructor and <code class="notranslate">rmtree</code> as a sort of destructor.)</p>
+
+<p>Now take a look at <code class="notranslate">forest.h</code>.  This API happens to implement a <code class="notranslate">Forest</code> as a linked list of <code class="notranslate">Plot</code>s, each of which houses a <code class="notranslate">Tree</code>.  But you need not worry about such details, as we have abstracted them away for the sake of simplicity (and standardization).  Rather than ever <code class="notranslate">malloc</code> or <code class="notranslate">free</code> a <code class="notranslate">Forest</code> yourself, you should instead, much like for <code class="notranslate">Tree</code>s, call <code class="notranslate">mkforest</code> or <code class="notranslate">rmforest</code>, respectively.  Moreover, rather than ever touch a <code class="notranslate">Forest</code>'s linked list, you should instead add <code class="notranslate">Tree</code>s to a <code class="notranslate">Forest</code> with <code class="notranslate">plant</code> and remove <code class="notranslate">Tree</code>s from a <code class="notranslate">Forest</code> with <code class="notranslate">pick</code>.  Note that this API does not build Huffman's tree for you!  Rather, it maintains <code class="notranslate">Tree</code>s that you yourself have planted in sorted order so that you can pick those same <code class="notranslate">Tree</code>s in order of increasing frequency, with the API (and not you) breaking ties when necessary.</p>
+
+<p>If curious as to how this all works, take a look at <code class="notranslate">tree.c</code> and <code class="notranslate">forest.c</code>.  But, again, most important is that you familiarize yourself with these APIs by way of those header files.</p></li>
+<li><p>Alright, implement in a file called <code class="notranslate">puff.c</code> a program called <code class="notranslate">puff</code> that decompresses huffed files!  Allow us to put forth the following requirements.</p>
+
+<ul>
+<li>  Your program must accept two and only two command-line arguments: the name of a file to puff followed by the name under which to save the puffed output.  If a user does not provide such, your program should remind the user of its usage and exit, with <code class="notranslate">main</code> returning <code class="notranslate">1</code>.</li>
+<li>  Your program must ensure that its input is (most likely) indeed huffed by reading, with <code class="notranslate">hread</code>, its first bytes into a <code class="notranslate">Huffeader</code> and checking its magic number and checksum.  If its input is not a valid huffed file, your program should inform the user accordingly and exit, with <code class="notranslate">main</code> returning <code class="notranslate">1</code>.
+(   You must build Huffman's tree using our APIs for <code class="notranslate">Forest</code>s and <code class="notranslate">Tree</code>s.  That tree must not include nodes for symbols not appearing in the huffed file.</li>
+<li>  After picking two trees from a forest in order to join them as siblings with a new parent, the first tree picked should become the parent's left child, the second the parent's right.</li>
+<li>  Assume that left branches represent <code class="notranslate">0</code>s and right branches <code class="notranslate">1</code>s.</li>
+<li>  If puffing a file that contains only one unique symbol, assume the symbol's code is just <code class="notranslate">0</code>.</li>
+<li>  You must read in bits using our API for <code class="notranslate">Huffile</code>s.</li>
+<li>  You need not ever call <code class="notranslate">bwrite</code> or <code class="notranslate">hwrite</code>, unless you'd also like to implement <code class="notranslate">huff</code>!</li>
+<li>  You must handle all possible errors gracefully by printing error messages and returning <code class="notranslate">1</code>; under no circumstances should we be able to crash your code.</li>
+<li>  You may not leak any memory.  Before quitting, even upon error, your program must <code class="notranslate">free</code> any memory allocated on its heap, either with <code class="notranslate">free</code> or, if allocated by our APIs, with <code class="notranslate">hfclose</code>, <code class="notranslate">rmtree</code>, and/or <code class="notranslate">rmforest</code>.</li>
+<li>  You must update <code class="notranslate">Makefile</code> (however you see fit) with a target for <code class="notranslate">puff</code>.  Recall, though, that a target's second line must begin with a tab.  Recall, though, that when you hit Tab in <code class="notranslate">gedit</code>, though, you do not get <code class="notranslate">\t</code> but instead four spaces instead by default.  To insert a true tab using <code class="notranslate">gedit</code>, uncheck <strong>Use Spaces</strong> under <strong>Tab Width</strong> at the bottom of <code class="notranslate">gedit</code>'s window.  Then can you hit Tab to insert <code class="notranslate">\t</code>.</li>
+</ul>
+
+<p>If unsure where to begin, return your attention to <code class="notranslate">dump.c</code>, as you can adopt its overall framework as your own.  Of course, <code class="notranslate">dump</code> stops short of building Huffman's tree, so there's still work to be done!</p>
+
+<p>How to determine if your code is correct?  Well, certainly play with the staff's solutions to both <code class="notranslate">huff</code> and <code class="notranslate">puff</code> in <code class="notranslate">~cs50/pset6</code>, comparing our output to yours.  Also use ls with its <code class="notranslate">-l</code> switch to compare files' sizes.  And, rather than compare outputs visually (e.g., with <code class="notranslate">gedit</code>, <code class="notranslate">xxd</code>, <code class="notranslate">cat</code>, <code class="notranslate">more</code>, or <code class="notranslate">less</code>), you can use a popular tool called <code class="notranslate">diff</code>.  For instance, suppose that you've already run the below.</p>
+<div class="notranslate syntax"><pre>~cs50/pset6/huff hth.txt hth.bin
+</pre></div>
+<p>And now you'd like to try puffing <code class="notranslate">hth.bin</code> with your own version of <code class="notranslate">puff</code>, and so you run a command like the below.</p>
+<div class="notranslate syntax"><pre>./puff hth.bin puffed.txt
+</pre></div>
+<p>You can now compare <code class="notranslate">hth.txt</code> and <code class="notranslate">puffed.txt</code> for differences by executing the below.</p>
+<div class="notranslate syntax"><pre>diff hth.txt puffed.txt
+</pre></div>
+<p>If those the files are identical, then <code class="notranslate">diff</code> will say nothing!  Otherwise it will report lines with differences.</p>
+
+<p>Of course, best to test <code class="notranslate">puff</code> with more than just <code class="notranslate">hth.txt</code>.  Odds are, you have a whole bunch of text files within reach from <a class="notranslate" href="https://x.cs50.net/2012/psets/5/pset5.html" target="_blank" title="">Problem Set 5</a> that you can huff with our <code class="notranslate">huff</code> and puff with your <code class="notranslate">puff</code>!  In theory, you can huff binary files as well, even though (conceptually, at least) Huffman's algorithm is meant for ASCII files.</p>
+
+<p>Meanwhile, if you'd like to check the correctness of your program with <code class="notranslate">check50</code>, you may execute the below.</p>
+<div class="notranslate syntax"><pre>check50 2012/pset6/puff Makefile puff.c
+</pre></div>
+<p>And how can you chase down memory leaks?  Well, you know your code best, so certainly think about where your own code might leak.  Focus, in particular, on any blocks of code in which your code might return prematurely (as in the case of some error); it's not likely sufficient to free up your heap only, say, at the very end of <code class="notranslate">main</code>.</p>
+
+<p>But also take advantage of <code class="notranslate">valgrind</code>, whose job is to report memory-related mistakes and, in particular, leaks.  Run it with a command like the below.</p>
+<div class="notranslate syntax"><pre>valgrind ./puff hth.bin puffed.txt
+</pre></div>
+<p>Admittedly, <code class="notranslate">valgrind</code>'s output is a bit cryptic, but keep an eye out for <code class="notranslate">ERROR SUMMARY</code> and, possibly, <code class="notranslate">LEAK SUMMARY</code>.  For additional hints, run it with some optional switches, per the below.</p>
+<div class="notranslate syntax"><pre>valgrind -v --leak-check=full ./puff hth.bin puffed.txt
+</pre></div>
+<p>And don't forget to use <code class="notranslate">gdb</code> when debugging!</p>
+
+<p>Alright, off you go.  HTH!</p></li>
+</ul>
+
+<h2 id="toc_286">How to Submit.</h2>
+
+<p>In order to submit this problem set, you must first execute a command in the appliance and then submit a (brief) form online. </p>
+
+<ul>
+<li><p>Open a terminal window via <strong>Menu &gt; Programming &gt; Terminal</strong> (<u>not</u> within <code class="notranslate">gedit</code>) and execute:</p>
+<div class="notranslate syntax"><pre>update50
+</pre></div>
+<p>to ensure you have the latest release of the appliance.  Then execute:</p>
+<div class="notranslate syntax"><pre>cd ~/Dropbox/pset6
+</pre></div>
+<p>Then execute:</p>
+<div class="notranslate syntax"><pre>ls
+</pre></div>
+<p>At a minimum, you should see <code class="notranslate">dictionary.c</code>, <code class="notranslate">dictionary.h</code>, <code class="notranslate">Makefile</code>, <code class="notranslate">questions.txt</code>, and <code class="notranslate">speller.c</code>.  If not, odds are you skipped some step(s) earlier!  If you do see those files, you are ready to submit your source code to us.  Execute:</p>
+<div class="notranslate syntax"><pre>submit50 ~/Dropbox/pset6
+</pre></div>
+<p>and follow the on-screen instructions.  </p>
+
+<p>That command will essentially upload your entire <code class="notranslate">~/Dropbox/pset6</code> directory to CS50's servers, where it will be graded officially.  The command will inform you whether your submission was successful or not.  And you may inspect your submission at <a class="notranslate" href="https://x.cs50.net/submit" target="_blank" title="">CS50 Submit</a>.</p>
+
+<p>You may re-submit as many times as you'd like; we'll re-grade your most recent submission.  </p>
+
+<p>If you run into any trouble at all, let us know via <a class="notranslate" href="https://x.cs50.net/discuss" target="_blank" title="">CS50 Discuss</a>, and we'll try to assist!</p></li>
+<li><p>Head to the URL below where a short form awaits:</p>
+
+<p><a href="https://x.cs50.net/2012/psets/6/form">https://x.cs50.net/2012/psets/6/form</a></p>
+
+<p>Once you have submitted that form (as well as your source code), you are done!</p>
+
+<p><strong>If you decide to re-submit your code with <code class="notranslate">submit50</code>, you do not need to re-submit the form.</strong></p>
+
+<p>This was Problem Set 6.</p></li>
+</ul>
+
+      </div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./pset6_files/translate-32.png" width="20" height="20"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+    
+
+</body></html>

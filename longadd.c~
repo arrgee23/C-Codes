@@ -1,0 +1,75 @@
+#include<stdio.h>
+void converter(char str1[],char str2[]);
+void add(void);
+int strlngth(char x[]);
+int a[40],b[40],c[41],length1,length2;
+int main()
+{
+	int i;
+	char x[40],y[40];
+	printf("enter number1= ");
+	scanf("%s",x);
+	printf("\enter number2= ");
+	scanf("%s",y);
+	length1=strlngth(x);
+	length2=strlngth(y);
+	converter(x,y);
+	
+	for(i=0;i<=length1;i++)
+return 0;
+}
+void converter(char str1[],char str2[])
+{
+	int condigit[30],i,sum=0,j;
+	for(i=0;i<length1;i++)
+	{
+		if(str1[i]=='0')
+		a[i]=0;
+		else
+		a[i]=1;	
+	}
+	for(i=0;i<length2;i++)
+	{
+		if(str2[i]=='0')
+		b[i]=0;
+		else
+		b[i]=1;	
+	}
+}
+int strlngth(char x[]) //char x[]is used to take an input of a char array
+{
+	int i,count=0;
+	for(i=0;i<100;i++)
+	{
+		if(x[i]==0)
+		{break;}
+		count++;
+	}
+	return count;	
+}
+
+void add(void)
+{
+	int i;
+	for(i=0;i<=length1;i++)
+	{
+		if(a[length1-1-i]+b[length2-1-i]==0)
+		{
+		c[length1-i]=0;
+		}
+		if(a[length1-1-i]+b[length2-1-i]==1)
+		{
+		c[length1-i]=1;
+		}
+		if(a[length1-1-i]+b[length2-1-i]==2)
+		{
+		c[length1-i]=0;
+		a[length1-2-i]++;
+		}
+		if(a[length1-1-i]+b[length2-1-i]==3)
+		{
+		c[length1-i]=1;
+		a[length1-2-i]++;
+		}
+	}
+}
